@@ -1,0 +1,7 @@
+model_name: Qwen/Qwen2.5-0.5B-Instruct
+data_path: data/smoke_32.jsonl
+artifacts_root: artifacts/runs
+seed: 42
+batch_size: 8
+max_input_length: 256
+device: cuda

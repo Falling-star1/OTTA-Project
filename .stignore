@@ -1,0 +1,5 @@
+// Obsidian 窗口布局，两端各自维护，不同步
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash

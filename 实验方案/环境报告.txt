@@ -1,0 +1,92 @@
+环境报告（环境配置、模型与数据验证）
+
+更新日期：2026-09-13
+项目目录：D:\大创\进度
+项目解释器：D:\大创\进度\.venv\Scripts\python.exe
+
+## 0. 首次诊断记录（保留）
+
+- 生成时间：2026-09-12 15:47:05 Asia/Shanghai
+- 当时默认解释器：Python 3.11.9，PyTorch 2.13.0+cpu
+- 当时 CUDA：不可用，`torch.version.cuda = None`
+- 当时依赖探测：Transformers 已安装；PEFT、Datasets、pytest 未安装。
+- 原因：当时使用的是系统 Python，而非后来创建的项目 `.venv`。
+
+## 1. 硬件与系统
+
+- OS：Microsoft Windows NT 10.0.22631.0
+- GPU：NVIDIA GeForce RTX 4050 Laptop GPU
+- 显存：6141 MiB（约 6 GiB）
+- NVIDIA 驱动：610.62
+
+## 2. 项目虚拟环境（已验证）
+
+- Python：3.11.9
+- PyTorch：2.14.0+cu126
+- CUDA runtime：12.6
+- torch.cuda.is_available()：True
+- Transformers：5.17.0
+- PEFT：0.20.0
+- Datasets：5.0.1
+- pytest：9.1.1
+- 其他已安装的实验依赖：accelerate、PyYAML、safetensors
+
+说明：系统默认 `C:\Users\wzz\Python311\python.exe` 仍为 `torch 2.13.0+cpu`，不能用于本项目实验。后续所有命令必须通过本项目 `.venv` 执行。
+
+## 3. 环境配置命令
+
+```powershell
+Set-Location -LiteralPath 'D:\大创\进度'
+uv venv .venv --python 3.11
+$projectPython = '.\.venv\Scripts\python.exe'
+
+uv pip install --python $projectPython torch --index-url https://download.pytorch.org/whl/cu126
+uv pip install --python $projectPython "transformers>=4.37" peft accelerate datasets pytest pyyaml safetensors
+
+& $projectPython -c "import torch; print(torch.__version__); print(torch.cuda.is_available()); print(torch.version.cuda); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'NO GPU')"
+& $projectPython -c "import transformers, peft, datasets, pytest; print('dependencies ok')"
+```
+
+上述 GPU 检查输出：
+
+```text
+2.14.0+cu126
+True
+12.6
+NVIDIA GeForce RTX 4050 Laptop GPU
+dependencies ok
+```
+
+## 4. 模型 smoke test（已通过）
+
+- 模型：`Qwen/Qwen2.5-0.5B-Instruct`
+- dtype：`torch.float16`
+- 设备：CUDA GPU
+- 输入：`Hello`
+- 前向输出 logits shape：`torch.Size([1, 1, 151936])`
+- 前向峰值显存：`0.94 GiB`
+
+复现命令：
+
+```powershell
+& $projectPython -c "import torch; from transformers import AutoTokenizer, AutoModelForCausalLM; name='Qwen/Qwen2.5-0.5B-Instruct'; tok=AutoTokenizer.from_pretrained(name); model=AutoModelForCausalLM.from_pretrained(name, dtype=torch.float16).to('cuda'); x=tok('Hello', return_tensors='pt').to('cuda'); torch.set_grad_enabled(False); y=model(**x); print(y.logits.shape); print('VRAM GiB=', round(torch.cuda.max_memory_allocated()/1024**3, 2))"
+```
+
+注：首次下载模型时 Hugging Face 会提示未配置 `HF_TOKEN`；这不影响本次公开模型加载与前向验证。旧命令中的 `torch_dtype` 在当前 Transformers 版本中已弃用，复现时应使用 `dtype`。
+
+## 5. ARC 数据验证（已通过）
+
+- 数据集：`allenai/ai2_arc`
+- 配置：`ARC-Challenge`
+- 已验证 split：`validation`
+- 可读取样本数：299
+- 字段：`id`、`question`、`choices`、`answerKey`
+- 首条样本 ID：`Mercury_SC_407695`
+
+复现命令：
+
+```powershell
+& $projectPython -c "from datasets import load_dataset; d=load_dataset('allenai/ai2_arc','ARC-Challenge',split='validation'); print(len(d)); print(d[0])"
+```
+
+结论：项目环境、0.5B 模型单次前向和 ARC-Challenge 数据读取均已验证通过。下一步应从 ARC 验证集固定选出 32 条 smoke 样本，保存 `sample_id` 清单与标准化数据文件；不要在正式实验时临时随机抽样。
