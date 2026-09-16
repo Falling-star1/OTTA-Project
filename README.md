@@ -13,14 +13,27 @@
 
 ## 环境与验证
 
-建议使用 Python 3.10 或更高版本：
+本项目当前在 Windows、Python 3.11、RTX 4050 上验证。请始终使用项目虚拟环境，不要使用系统 Python（系统 Python 中的 PyTorch 可能是 CPU 版）。
 
-```bash
-python -m venv .venv
-.venv\\Scripts\\activate
-pip install -r requirements.txt
-pytest
+```powershell
+Set-Location -LiteralPath 'D:\大创\进度'
+uv venv .venv --python 3.11
+$projectPython = '.\.venv\Scripts\python.exe'
+uv pip install --python $projectPython torch --index-url https://download.pytorch.org/whl/cu126
+uv pip install --python $projectPython -r requirements.txt
+
+& $projectPython -c "import torch; print(torch.__version__); print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'NO GPU')"
+& $projectPython -m pytest -q
+& $projectPython -m src.data.prepare_smoke_data --check --output data/smoke_32.jsonl --count 32
 ```
+
+运行 No Adaptation smoke test：
+
+```powershell
+& $projectPython -m src.scripts.run_experiment --config configs/smoke.yaml --method no_adaptation
+```
+
+命令会在 `artifacts/runs/no_adaptation/42/<时间戳>/` 生成一份新的运行目录。请保留旧目录，不要覆盖历史结果；将新目录中的 `summary.json` 与 `environment.json` 登记到 `实验方案/实验记录.md`。
 
 ## 三人协作约定
 
