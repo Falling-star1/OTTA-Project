@@ -1,4 +1,8 @@
-torch
-transformers
+# PyTorch must be installed separately from the CUDA wheel index; see README.md.
+transformers==5.17.0
+peft==0.20.0
+accelerate
+datasets==5.0.1
 PyYAML
-pytest
+pytest==9.1.1
+safetensors

@@ -40,3 +40,42 @@ def test_runner_persists_predictions_before_evaluating_each_batch():
     assert saved_prediction_counts == [1, 2]
     assert result["summary"] == {"correct": 2, "total": 2, "accuracy": 1.0}
     assert len(result["batch_metrics"]) == 2
+
+
+def test_runner_exposes_only_unlabeled_records_to_predictor():
+    records = [
+        {
+            "sample_id": "one",
+            "question": "q",
+            "choices": [
+                {"label": "A", "text": "a"},
+                {"label": "B", "text": "b"},
+            ],
+            "answer": "B",
+        }
+    ]
+    received_records = []
+
+    def capture_predictor(record, _score_option):
+        received_records.append(record)
+        return {"sample_id": record["sample_id"], "prediction": "A"}
+
+    result = run_prediction_stream(
+        records,
+        score_option=lambda _question, _choice: 0.0,
+        batch_size=1,
+        persist_predictions=lambda _predictions: None,
+        predict_record_fn=capture_predictor,
+    )
+
+    assert received_records == [
+        {
+            "sample_id": "one",
+            "question": "q",
+            "choices": [
+                {"label": "A", "text": "a"},
+                {"label": "B", "text": "b"},
+            ],
+        }
+    ]
+    assert result["summary"] == {"correct": 0, "total": 1, "accuracy": 0.0}
