@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-18",
+  "revision": "3 GPUs after observed 2-GPU long-input OOM",
+  "failed_old_gpu_run": "/data/chuwenjing/results/tent_full_preflight/qwen25-7b/20261018_182828_088630",
+  "failure_audit_log": "server-qwen-audit-tent-full-failure-20261018.log",
+  "local_cpu_tests": {
+    "status": "PASS",
+    "count": 36,
+    "torch": "2.14.0+cu126",
+    "transformers": "4.46.1",
+    "peft": "0.12.0"
+  },
+  "server_readonly_syntax_data_validation": "PASS, Python3.10.18 / bash / original three 5000-record hashes",
+  "independent_code_review": "No important/blocking finding in three-GPU revision",
+  "checksum_files": 20,
+  "checksum_inventory_sha256": "1af575efa546001a1fe0d422c3031233bca9095f9028a0b1ff9b8c9ec9e110d0",
+  "upload": "NOT_PERFORMED",
+  "three_gpu_preflight": "NOT_RUN",
+  "OOM_resolution_on_real_GPU": "NOT_YET_VERIFIED",
+  "scientific_settings": "unchanged; model placement/GPU count and isolated paths changed"
+}

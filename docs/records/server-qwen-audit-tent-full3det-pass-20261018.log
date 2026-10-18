@@ -1,0 +1,17 @@
+{"dataset": "geosignal_5k", "source_index": 3396, "prompt_tokens": 4096, "source_generated_tokens": 466, "entropy_before": 0.573185384273529, "entropy_after": 0.4396514892578125, "valid_generated_tokens": 80, "checkpoint_and_RNG": "EXACT_MATCH", "frozen_base_unchanged": true, "peak_memory_mib": [5713.5, 7022.9, 6636.1], "physical_gpus": [0, 1, 2]}
+{"dataset": "dolly_5k", "source_index": 1404, "prompt_tokens": 4096, "source_generated_tokens": 512, "entropy_before": 0.3089941143989563, "entropy_after": 0.21475692093372345, "valid_generated_tokens": 80, "checkpoint_and_RNG": "EXACT_MATCH", "frozen_base_unchanged": true, "peak_memory_mib": [5713.5, 7022.9, 6636.1], "physical_gpus": [0, 1, 2]}
+{"dataset": "gsm8k_5k", "source_index": 1445, "prompt_tokens": 248, "source_generated_tokens": 429, "entropy_before": 0.3008960783481598, "entropy_after": 0.3003297746181488, "valid_generated_tokens": 80, "checkpoint_and_RNG": "EXACT_MATCH", "frozen_base_unchanged": true, "peak_memory_mib": [4484.4, 5557.0, 5250.2], "physical_gpus": [0, 1, 2]}
+AUDITED_OUTPUT_DIR=/data/chuwenjing/results/tent_full_preflight_3gpu_det/qwen25-7b/20261018_193738_780511
+{"summary": "ALL_THREE_PREFLIGHT_PASS", "protocol_id": "ee3806d2b3fb9fe2a02dc0676d19c7c8f9b4196ab7a66e8ce6147cc134e3be66", "report_hashes": "PASS", "fixed_config_and_data": "PASS", "checkpoint_hashes_and_cursors": "PASS", "started_at": "2026-10-18T11:37:38.839544+00:00", "finished_at": "2026-10-18T11:48:30.876489+00:00"}
+index, memory.used [MiB], utilization.gpu [%]
+0, 1 MiB, 0 %
+1, 1 MiB, 0 %
+2, 1 MiB, 0 %
+3, 1 MiB, 0 %
+4, 1 MiB, 0 %
+5, 1 MiB, 0 %
+6, 1 MiB, 0 %
+7, 1 MiB, 0 %
+
+TENT_FULL_PREFLIGHT_AUDIT=PASS
+LOCAL_INSTALLED_CODE_MATCH=PASS

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "method": "Tent-text-LoRA offline engineering smoke; not full paper reproduction",
+  "repository": "/home/chuwenjing/TTA_LLM/TLM",
+  "source_commit": "496c9ed97d0fb8bc4854ed2479259e7e9e70a790",
+  "environment": "/data/chuwenjing/conda-envs/tta-llm",
+  "versions": {"torch": "2.5.1+cu118", "transformers": "4.46.1", "peft": "0.12.0"},
+  "model": "/data/chuwenjing/models/Qwen2.5-7B-Instruct",
+  "data_root": "/data/chuwenjing/datasets/AdaptEval/496c9ed97d0f",
+  "samples_per_dataset": 16,
+  "max_input_tokens": 1024,
+  "adapt_max_new_tokens": 80,
+  "eval_max_new_tokens": 512,
+  "lora_rank": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.0,
+  "expected_trainable_parameters": 2523136,
+  "learning_rates": {"geosignal_5k": 0.00005, "dolly_5k": 0.00005, "gsm8k_5k": 0.000001},
+  "seed": 42,
+  "preflight_frozen_base_sha256": "5f48a2a8b284a3a4a3e0c9079bc0504c26fafecd006fdb339da0b9f34b11186f",
+  "source_reference": "/data/chuwenjing/results/source_smoke/qwen25-7b/20261018_110656_386331",
+  "source_files_sha256": {
+    "run_manifest.json": "07e729f9b5adfaeaa370111c9967328236a99ecd3fe671210948e5827a4951c9",
+    "metrics.json": "e5bb3bcd9126b600a96c29626183c011847e24140759aab21c1a85f63146663d",
+    "geosignal_5k.jsonl": "8a1698bcd8b9ed1db7bf6b2ae9752781c32a40f3962402d1096bb823cebdc444",
+    "dolly_5k.jsonl": "e8667aa313a7530ccca1962020d5e6cee3ae1aa6011e3d433d5a20f791713209",
+    "gsm8k_5k.jsonl": "b379bb17bc6f8728d5d797e13b518928ac76f4dfdddf4fd788fe4f935bf26e8e"
+  },
+  "result_root": "/data/chuwenjing/results/tent_offline_smoke/qwen25-7b"
+}

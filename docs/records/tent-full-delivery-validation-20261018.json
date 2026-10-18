@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-18",
+  "scope": "Qwen full-run tooling delivery; not GPU experiment completion",
+  "cpu_tests": {
+    "count": 33,
+    "status": "PASS",
+    "torch": "2.14.0+cu126",
+    "transformers": "4.46.1",
+    "peft": "0.12.0",
+    "command": ".venv/Scripts/python.exe -B .tools/run_tent_compat_tests.py --bundle full"
+  },
+  "server_readonly": {
+    "python": "3.10.18",
+    "python_syntax": "PASS",
+    "bash_syntax": "PASS",
+    "dataset_hashes_counts": "PASS",
+    "log": "server-qwen-syntax-tent-full-20261018.log"
+  },
+  "independent_review": "All reported blocking issues resolved; final read-only inventory/hash review passed",
+  "packaging": {
+    "checksummed_files": 18,
+    "UTF8_LF_inventory": "PASS",
+    "SHA256SUMS_sha256": "134640b21f91d873aa2442d506702a1f1ef60b9c621395b8eab814c29fb2e210"
+  },
+  "server_upload": "NOT_PERFORMED",
+  "real_gpu_long_input_preflight": "NOT_RUN",
+  "full_3x5000_run": "NOT_RUN",
+  "llama_model_and_experiment": "PENDING_ACCESS_AND_MODEL"
+}

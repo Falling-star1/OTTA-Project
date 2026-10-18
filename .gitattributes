@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+SHA256SUMS text eol=lf
+*.zip binary
+# Frozen delivery bundles and old snapshots retain exact committed bytes.
+offline_tta/** -text
+archive/** -text
+docs/records/** -text
