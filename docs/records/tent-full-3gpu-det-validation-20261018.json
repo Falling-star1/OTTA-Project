@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-18",
+  "revision": "three-GPU strict deterministic execution; exact restore acceptance retained",
+  "local_cpu": {
+    "tests": 39,
+    "status": "PASS",
+    "torch": "2.14.0+cu126",
+    "transformers": "4.46.1",
+    "peft": "0.12.0"
+  },
+  "server_readonly_syntax_data": "PASS under Python3.10.18 / bash / fixed data SHA and counts",
+  "sdpa_gpu_diagnostic": {
+    "torch": "2.5.1+cu118",
+    "gpu": "RTX2080Ti",
+    "default_Q_unequal_elements": [
+      41164,
+      40001,
+      39886
+    ],
+    "default_max_abs_difference": 0.000244140625,
+    "strict_all_QKV_unequal_elements": [
+      0,
+      0,
+      0
+    ],
+    "peak_memory_mib": 315.81591796875
+  },
+  "tiny_random_Qwen_gpu_replay": {
+    "default_adapter_Adam_exact": true,
+    "strict_adapter_Adam_exact": true,
+    "peak_memory_mib": 92.18310546875,
+    "limitation": "Does not reproduce or replace full7B preflight"
+  },
+  "independent_review": "No important/blocking issue found in initialization/strict acceptance/isolated paths",
+  "checksummed_files": 22,
+  "SHA256SUMS_sha256": "c4e43d5fdb03652e3b55be389078a9e450e535888c912ca10fe1ee7875e9e14f",
+  "new_bundle_upload": "PERFORMED_BY_USER; installed code matches local package",
+  "full_7B_strict_preflight": {
+    "status": "PASS; independently audited read-only",
+    "output": "/data/chuwenjing/results/tent_full_preflight_3gpu_det/qwen25-7b/20261018_193738_780511",
+    "protocol_id": "ee3806d2b3fb9fe2a02dc0676d19c7c8f9b4196ab7a66e8ce6147cc134e3be66",
+    "started_at": "2026-10-18T11:37:38.839544+00:00",
+    "finished_at": "2026-10-18T11:48:30.876489+00:00",
+    "all_three_adapter_Adam_RNG_continuation": "EXACT_MATCH",
+    "all_three_frozen_base": "UNCHANGED",
+    "report_and_checkpoint_hashes": "PASS",
+    "long_input_peak_PyTorch_memory_mib": [
+      5713.5,
+      7022.9,
+      6636.1
+    ],
+    "audit_log": "server-qwen-audit-tent-full3det-pass-20261018.log"
+  },
+  "full_experiment": "NOT_STARTED_BY_ASSISTANT; full-run command supplied for manual launch"
+}

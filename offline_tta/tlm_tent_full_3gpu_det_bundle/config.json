@@ -1,0 +1,45 @@
+{
+  "schema_version": 3,
+  "method": "Tent-text-LoRA offline full engineering reproduction",
+  "repository": "/home/chuwenjing/TTA_LLM/TLM",
+  "source_commit": "496c9ed97d0fb8bc4854ed2479259e7e9e70a790",
+  "environment": "/data/chuwenjing/conda-envs/tta-llm",
+  "versions": {
+    "torch": "2.5.1+cu118",
+    "transformers": "4.46.1",
+    "peft": "0.12.0"
+  },
+  "model": "/data/chuwenjing/models/Qwen2.5-7B-Instruct",
+  "data_root": "/data/chuwenjing/datasets/AdaptEval/496c9ed97d0f",
+  "samples_per_dataset": 5000,
+  "max_input_tokens": 4096,
+  "adapt_max_new_tokens": 80,
+  "eval_max_new_tokens": 512,
+  "lora_rank": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.0,
+  "expected_trainable_parameters": 2523136,
+  "learning_rates": {
+    "geosignal_5k": 5e-05,
+    "dolly_5k": 5e-05,
+    "gsm8k_5k": 1e-06
+  },
+  "seed": 42,
+  "checkpoint_interval": 25,
+  "preflight_indices": {
+    "geosignal_5k": 3396,
+    "dolly_5k": 1404,
+    "gsm8k_5k": 1445
+  },
+  "preflight_frozen_base_sha256": "5f48a2a8b284a3a4a3e0c9079bc0504c26fafecd006fdb339da0b9f34b11186f",
+  "result_root": "/data/chuwenjing/results/tent_full_3gpu_det/qwen25-7b",
+  "preflight_root": "/data/chuwenjing/results/tent_full_preflight_3gpu_det/qwen25-7b",
+  "receipt": "/data/chuwenjing/tta_offline/tlm_tent_full_3gpu_det_bundle/preflight_receipt.json",
+  "gpu_count": 3,
+  "hardware_revision": "3gpu_strict_determinism_after_SDPA_replay_mismatch",
+  "determinism": {
+    "algorithms": true,
+    "warn_only": false,
+    "cublas_workspace": ":4096:8"
+  }
+}

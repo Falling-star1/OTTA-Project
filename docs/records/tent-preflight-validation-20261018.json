@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-18",
+  "tests": 12,
+  "cpu_tests": "PASS",
+  "local_torch": "2.14.0+cu126",
+  "compatibility_transformers": "4.46.1",
+  "compatibility_peft": "0.12.0",
+  "server_python310_and_bash_syntax": "PASS",
+  "independent_review": "No critical or important findings",
+  "qwen_gpu_single_step": "PASS_VERIFIED_FROM_SERVER_REPORT",
+  "server_run": "/data/chuwenjing/results/tent_single_step/qwen25-7b/20261018_163839_109297",
+  "entropy_before": 0.25582805275917053,
+  "entropy_after": 0.25549131631851196,
+  "frozen_base_unchanged": true,
+  "adapter_and_optimizer_reset": "PASS",
+  "peak_memory_mib": [6685.3, 8303.2],
+  "automatic_upload": false
+}

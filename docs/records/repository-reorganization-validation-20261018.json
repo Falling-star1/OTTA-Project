@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-18",
+  "scope": "Repository reorganization only; no new server experiment",
+  "local_status": "PASS",
+  "archive_main_commit": "807856c02eaaaf497134a69f8c26d677a24a3473",
+  "archive_feature_commit": "ec8dae8501d074694c7f09bb54bfdb2acd93a2f3",
+  "exact_main_blob_files": 42,
+  "frozen_bundles": 5,
+  "exact_bundle_files": 62,
+  "bundle_SHA256SUMS_entries": 57,
+  "current_markdown_links": 33,
+  "python_syntax_files": 30,
+  "cpu_unittest": {
+    "tests": 39,
+    "status": "PASS",
+    "torch": "2.14.0+cu126",
+    "transformers": "4.46.1",
+    "peft": "0.12.0"
+  },
+  "server_gpu_tests": "Historical evidence copied unchanged; not rerun for this reorganization",
+  "full_run_status": "No registered launch directory or formal results",
+  "original_research_worktree_files": "Not modified",
+  "publication": "See the GitHub pull request and archive tags for published state"
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "method": "Tent-text-LoRA engineering adaptation; single-step validation only",
+  "repository": "/home/chuwenjing/TTA_LLM/TLM",
+  "source_commit": "496c9ed97d0fb8bc4854ed2479259e7e9e70a790",
+  "environment": "/data/chuwenjing/conda-envs/tta-llm",
+  "versions": {"torch": "2.5.1+cu118", "transformers": "4.46.1", "peft": "0.12.0"},
+  "model": "/data/chuwenjing/models/Qwen2.5-7B-Instruct",
+  "data_root": "/data/chuwenjing/datasets/AdaptEval/496c9ed97d0f",
+  "dataset_alias": "gsm8k_5k",
+  "source_index": 0,
+  "max_input_tokens": 1024,
+  "adapt_max_new_tokens": 80,
+  "lora_rank": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.0,
+  "expected_trainable_parameters": 2523136,
+  "learning_rate": 0.000001,
+  "seed": 42,
+  "result_root": "/data/chuwenjing/results/tent_single_step/qwen25-7b"
+}
