@@ -20,5 +20,15 @@
   "server_gpu_tests": "Historical evidence copied unchanged; not rerun for this reorganization",
   "full_run_status": "No registered launch directory or formal results",
   "original_research_worktree_files": "Not modified",
-  "publication": "See the GitHub pull request and archive tags for published state"
+  "publication": "See the GitHub pull request and archive tags for published state",
+  "independent_review": "No blocking findings; reviewed staged content and reran repository integrity verification",
+  "fresh_windows_clone": {
+    "status": "PASS",
+    "tested_commit": "cfbc8e8",
+    "archive_files": 42,
+    "bundle_hash_entries": 57,
+    "local_doc_links": 33,
+    "working_tree_clean": true,
+    "default_windows_checkout_line_endings": true
+  }
 }

@@ -17,5 +17,7 @@
 - [x] 运行 `python scripts/verify_repository.py`，确认归档、bundle 和链接完整性。
 - [x] 使用已安装兼容库运行 `python scripts/run_cpu_tests.py --libs D:/大创/进度/.tools/tent-compat`，确认 39 项 CPU 用例。
 - [x] 检查暂存区体积、敏感信息、变更范围与 Git 换行行为。
-- [ ] 推送两份归档标签和 codex/reproduction-hub 分支，创建并核对 PR 后合并。
-- [ ] 核对 GitHub main 提交与标签，报告更新链接、未完成实验和团队认领事项。
+- 发布：推送两份归档标签和 codex/reproduction-hub 分支，创建并核对 PR 后合并。
+- 发布验收：核对 GitHub main 提交与标签，报告更新链接、未完成实验和团队认领事项。
+
+本地执行与独立复核已完成，fresh clone 校验通过；发布状态以 GitHub PR 的合并记录和远程标签为准。
