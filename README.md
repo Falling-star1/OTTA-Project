@@ -1,6 +1,6 @@
 # TLM 文本测试时适应：团队复现项目
 
-v4已直接修订训练分块计算，67项CPU检查通过，真实GPU完整预检待执行。见[v4修订与命令](offline_tta/tlm_offline_v4_bundle/README.md)。
+v4真实预检：Qwen＋Dolly整套PASS，Llama仍未通过数值检查；下一步仅Qwen做100条试跑。见[结果与命令](docs/records/20261026/TLM_v4预检结果与Qwen试跑.md)。
 
 TLM主实验统一使用Gaussian A、零B；旧Kaiming结果另列工程对照。v3两组真实FP16梯度预检未通过，新全量尚未启动。当前执行依据见[TLM复现实验方案](docs/TLM复现实验方案.md)。
 
