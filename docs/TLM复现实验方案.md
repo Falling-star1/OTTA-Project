@@ -7,6 +7,8 @@
 
 本轮采用 offline 流程：先用一组数据的全部问题做无标签适应，再用适应后的模型回答同一组问题，最后评分。参考答案只用于评分。因为适应和评测使用同一批输入，结果说明的是这种测试时适应设置下的表现；对未见问题的泛化需要另外划分数据验证。
 
+一次全量实验包含“5000条适应＋5000条最终评测”两个阶段。评测进度中的5000是同一批问题的数量；适应时学习输入，评测时生成回答并打分。
+
 | 模型 | GeoSignal | Dolly | GSM8K |
 |---|---|---|---|
 | Llama-3.2-3B-Instruct | 5000条 | 5000条 | 5000条 |
@@ -17,9 +19,10 @@
 ### 当前进度
 
 - 六组 TENT 已完成，结果从原运行目录汇总。
-- TLM 代码位于 [`offline_tta/tlm_offline_v1_bundle`](../offline_tta/tlm_offline_v1_bundle/README.md)。
-- 本地使用 Transformers 4.46.1、PEFT 0.12.0、Accelerate 1.0.1，通过45项CPU检查。记录见[兼容修订验证](records/20261025/tlm-compat-fix-validation.json)。本地 PyTorch 与服务器版本不同，仍需服务器检查。
-- 最新提供的服务器日志截图确认：Llama＋GSM8K 的真实模型预检、16条试跑均为 `PASS`。其余五组和正式全量进度，以该次运行的状态文件为准。
+- 当前修订包为 [`offline_tta/tlm_offline_v2_bundle`](../offline_tta/tlm_offline_v2_bundle/README.md)。已运行的v1及其快照保留原样。
+- v2本地使用 Transformers 4.46.1、PEFT 0.12.0、Accelerate 1.0.1，通过50项CPU检查。本地 PyTorch 与服务器版本不同，v2真实模型预检尚未运行。
+- 2026-10-25 13:44只读检查确认：v1的Llama＋GSM8K完成5000条适应，正在评测，已生成325条；其余五组因4步FP16恢复预检未产生参数变化而失败。
+- 14:14核对检查点和日志确认：预检强制筛选时意外放大权重，前几步梯度溢出触发更新跳过，加上零学习率warmup，4步不足以产生参数变化。v2修正权重并将恢复测试延长到16步，仍要求真实更新及恢复一致。证据见[问题记录](records/20261025/tlm-fp16-preflight-diagnosis.json)。当前状态应继续查看实际运行文件，不能把上述快照当作实时进度。
 
 旧计划、根目录中的历史快照和包内交付说明可能早于本次运行。更新进度时写明日期、运行目录和证据，不能只改一句“已完成”。
 
@@ -56,7 +59,7 @@ TENT 已有实现是在模型自己生成的回答上计算预测熵。这里的
 | 指标 | GeoSignal、Dolly：ROUGE-Lsum；GSM8K：官方提取器＋Exact Match |
 | 保存 | 每25步保存完整检查点，保留最近两个；另保存100、500、1000、2500、5000步的LoRA里程碑 |
 
-模型文件与模板清单见 [`profiles.json`](../offline_tta/tlm_offline_v1_bundle/profiles.json)，数据文件与哈希见 [`datasets.json`](../offline_tta/tlm_offline_v1_bundle/datasets.json)。服务器依赖版本由 `runtime.py` 核验，不另装一套环境。
+模型文件与模板清单见 [`profiles.json`](../offline_tta/tlm_offline_v2_bundle/profiles.json)，数据文件与哈希见 [`datasets.json`](../offline_tta/tlm_offline_v2_bundle/datasets.json)。服务器依赖版本由 `runtime.py` 核验，不另装一套环境。
 
 ### 与官方示例、已有TENT的差异
 
@@ -97,20 +100,22 @@ nvidia-smi
 
 ### 新实验：检查后启动
 
+已有v1运行时，按[v2说明](../offline_tta/tlm_offline_v2_bundle/README.md)使用`--skip llama3b__gsm8k_5k`单独重跑失败的五组。下面是不带跳过参数的全新六组示例，只能在六张卡均空闲且没有重复实验时执行。
+
 以下命令适用于团队现有服务器，要求代码包已经上传。代码中的模型、数据、源码和Source路径也绑定该部署；迁移到其他机器需要修改配置并重新预检。
 
 ```bash
 source /home/chuwenjing/TTA_LLM/TLM/local_repro/stage1/activate_tlm.sh
-cd /data/chuwenjing/tta_offline/tlm_offline_v1_bundle
+cd /data/chuwenjing/tta_offline/tlm_offline_v2_bundle
 python -B check.py
 nvidia-smi
 ```
 
-看到45项检查结束后的 `OK`，并确认所选六张卡空闲，才启动新任务：
+看到50项检查结束后的 `OK`，并确认所选六张卡空闲，才启动新任务：
 
 ```bash
-mkdir -p /data/chuwenjing/results/tlm_offline_v1
-TLM_RUN=/data/chuwenjing/results/tlm_offline_v1/run_$(date +%Y%m%d_%H%M%S)
+mkdir -p /data/chuwenjing/results/tlm_offline_v2
+TLM_RUN=/data/chuwenjing/results/tlm_offline_v2/run_$(date +%Y%m%d_%H%M%S)
 nohup python -B -u launch.py \
   --gpus 0,1,2,3,4,5 --mode all --output "$TLM_RUN" \
   > "${TLM_RUN}.log" 2>&1 < /dev/null &
@@ -147,7 +152,7 @@ Source复用前会检查预测是否完整、全量输入元数据是否匹配�
 
 先看该组 `*.status.json` 指向的日志，再看阶段输出目录里的 `failure.json`（若已生成）。保留原目录、错误信息和检查点，不通过改阈值、缩短输入或升级依赖来绕过错误。
 
-恢复使用原代码快照和原参数，显式指定同一组的完整 `trainer/checkpoint-N`；先验证其中的 `commit.json` 和文件哈希。不要在仍运行的组上启动第二个恢复进程。具体参数见[运行包的恢复说明](../offline_tta/tlm_offline_v1_bundle/README.md#中断后的单组恢复)。
+恢复使用原代码快照和原参数，显式指定同一组的完整 `trainer/checkpoint-N`；先验证其中的 `commit.json` 和文件哈希。不要在仍运行的组上启动第二个恢复进程。具体参数见[运行包的恢复说明](../offline_tta/tlm_offline_v2_bundle/README.md#中断后的单组恢复)。
 
 已知的两处兼容修订是：测试不再显式传Accelerate 1.0.1不支持的 `data_seed`；旧libc没有导出 `renameat2` 时使用Linux内核接口。完整修订包已更新校验清单；再次遇到这些错误，先核对使用的包版本。
 
