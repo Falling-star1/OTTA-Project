@@ -24,7 +24,7 @@ def main():
     required = {'tlm_stage1_bundle', 'tlm_source_smoke_bundle',
                 'tlm_tent_preflight_bundle', 'tlm_tent_offline_smoke_bundle',
                 'tlm_tent_full_3gpu_det_bundle', 'tlm_offline_v1_bundle',
-                'tlm_offline_v2_bundle'}
+                'tlm_offline_v2_bundle', 'tlm_offline_v3_bundle'}
     assert required <= {p.parent.name for p in bundles}, 'Missing required frozen delivery'
     hashed_files = 0
     for checksum in bundles:

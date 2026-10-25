@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-25",
+  "bundle": "offline_tta/tlm_offline_v3_bundle",
+  "code_id": "267c3593e1d2c62f7d741168dcfd82ff76dc60f5458a06e481beca570997915d",
+  "cpu_tests": 60,
+  "cpu_status": "PASS",
+  "local_torch": "2.14.0+cu126",
+  "accelerate": "1.0.1",
+  "default_lora_init": "gaussian",
+  "legacy_control": "--lora-init kaiming",
+  "confirmed_issue": "direct decoder path bypassed Accelerate autocast; CPU BF16 loss and gradient difference reproduced",
+  "fix": "explicit accelerator.autocast for base scoring and train CE",
+  "real_gpu_preflight": "NOT_RUN",
+  "dolly_degradation_fixed": "NOT_ESTABLISHED",
+  "server_gpu_jobs_started_by_assistant": 0,
+  "server_current_runs_modified": false,
+  "quality_guard": "100-row rolling windows: >5pp excess empty/repetition, or one answer >=50% and >10pp excess; stop/preserve",
+  "independent_review": "Numerical path, seed, multi-chunk and adapter/RNG restoration: no blocking findings; dominant-answer guard covered by added regression",
+  "receipt_binds_seed_and_initialization": true
+}
