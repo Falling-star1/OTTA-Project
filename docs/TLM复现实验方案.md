@@ -2,14 +2,18 @@
 
 **最新验证：v3两组Dolly的真实FP16预检在梯度对齐处失败，尚不能启动v3全量。见[GPU验证结果](records/20261025/TLM_v3真实GPU验证失败_20261025.md)。**
 
-候选修复：后续论文初始化对照选Gaussian；另发现并修订了分块训练绕过autocast的路径，新增输出质量检查。v3本地60项检查通过，真实GPU尚未验证，未替换当前运行。见[修复选择与验证步骤](records/20261025/TLM修复选择与v3验证.md)。
+正式配置：LoRA A使用Gaussian初始化，B置零。v3已采用这一默认值，并修订分块训练的autocast路径、增加输出质量检查。本地60项检查通过，但两组真实FP16预检均在梯度比较处失败，未替换旧运行。见[修复选择与验证步骤](records/20261025/TLM修复选择与v3验证.md)。
 
-**16:23运行核查补充：六组适应训练均已完成；两组Dolly因空答或循环重复，已按用户要求暂停评测，其他四组继续。当前初始化跟随固定源码默认值，与论文Gaussian初始化有差异。详见[运行核查与风险说明](records/20261025/TLM运行核查与风险_20261025.md)。下文较早的进度条目保留为历史记录。**
+本次统一核对了模型构建、运行器和启动器的五处初始化默认值，均为`gaussian`；代码快照未改，CPU检查重新通过。见[配置核对记录](records/20261025/tlm-paper-protocol-normalization.json)。
+
+**16:23旧运行核查：六组适应训练均已完成；两组Dolly因空答或循环重复，已按用户要求暂停评测，其他四组继续。旧运行使用源码默认Kaiming，与论文Gaussian不同，保留为工程对照。详见[运行核查与风险说明](records/20261025/TLM运行核查与风险_20261025.md)。下文较早的进度条目保留为历史记录。**
 
 
 ## 1. 这轮要做什么
 
-在已有 Source 和 TENT 实验上补齐 TLM，比较两种 3B 模型在三个数据集上的表现。先把六组固定配置的实验跑完整，再决定是否补消融和多种子实验。
+在已有 Source 和 TENT 实验上补齐 TLM，比较两种 3B 模型在三个数据集上的表现。新主实验统一使用Gaussian初始化；已有Kaiming运行保留为旧实现的工程对照，不填入新主实验的结果列。先通过数值预检，再完成六组固定配置实验，最后决定是否补消融和多种子实验。
+
+论文明确规定的初始化，按论文执行；固定官方源码用于核对训练流程。两者存在差异时逐项写明，不能用“跟随默认值”代替论文要求。当前FP16硬件条件和Qwen3B规模仍与论文不同，因此本轮应称为“按论文方法开展的3B/FP16复现实验”，不能称为原条件的完全复现。
 
 本轮采用 offline 流程：先用一组数据的全部问题做无标签适应，再用适应后的模型回答同一组问题，最后评分。参考答案只用于评分。因为适应和评测使用同一批输入，结果说明的是这种测试时适应设置下的表现；对未见问题的泛化需要另外划分数据验证。
 
@@ -25,8 +29,12 @@
 ### 当前进度
 
 - 六组 TENT 已完成，结果从原运行目录汇总。
-- 当前修订包为 [`offline_tta/tlm_offline_v2_bundle`](../offline_tta/tlm_offline_v2_bundle/README.md)。已运行的v1及其快照保留原样。
-- v2本地使用 Transformers 4.46.1、PEFT 0.12.0、Accelerate 1.0.1，通过50项CPU检查。本地 PyTorch 与服务器版本不同，v2真实模型预检尚未运行。
+- 当前候选包为 [`offline_tta/tlm_offline_v3_bundle`](../offline_tta/tlm_offline_v3_bundle/README.md)，默认Gaussian。它尚未通过真实GPU梯度验收，不能启动新全量。
+- 2026-10-25 16:23核查：旧v1/v2六组已完成5000条适应。两组Dolly因空答或循环重复暂停评测，其他四组按既有安排继续。旧任务沿用各自代码、初始化和输出目录。
+- 2026-10-25 17:33核查：v3两组Dolly预检均在梯度对齐处失败，16步保存恢复测试尚未执行，没有启动v3的5000条适应或评测。GPU验证记录见本文开头链接。
+
+以下两条为此前故障记录，不代表当前阶段：
+
 - 2026-10-25 13:44只读检查确认：v1的Llama＋GSM8K完成5000条适应，正在评测，已生成325条；其余五组因4步FP16恢复预检未产生参数变化而失败。
 - 14:14核对检查点和日志确认：预检强制筛选时意外放大权重，前几步梯度溢出触发更新跳过，加上零学习率warmup，4步不足以产生参数变化。v2修正权重并将恢复测试延长到16步，仍要求真实更新及恢复一致。证据见[问题记录](records/20261025/tlm-fp16-preflight-diagnosis.json)。当前状态应继续查看实际运行文件，不能把上述快照当作实时进度。
 
@@ -47,14 +55,15 @@ TENT 已有实现是在模型自己生成的回答上计算预测熵。这里的
 
 未选中的样本使用零损失，但仍保留固定官方实现的优化器调用。已有动量可能继续引起参数变化，因此“没选中”不等于“参数一定不动”。
 
-方法以官方提交 `496c9ed97d0fb8bc4854ed2479259e7e9e70a790` 为准。可核对[官方训练配置](https://github.com/Fhujinwu/TLM/blob/496c9ed97d0fb8bc4854ed2479259e7e9e70a790/examples/train_lora/offline_ttl.yaml)和[损失实现](https://github.com/Fhujinwu/TLM/blob/496c9ed97d0fb8bc4854ed2479259e7e9e70a790/src/llamafactory/train/ttl/trainer.py)。当前启动方式以本文和运行包为准。
+损失和离线流程核对官方提交 `496c9ed97d0fb8bc4854ed2479259e7e9e70a790`，初始化按论文明确的Gaussian执行。可核对[官方训练配置](https://github.com/Fhujinwu/TLM/blob/496c9ed97d0fb8bc4854ed2479259e7e9e70a790/examples/train_lora/offline_ttl.yaml)和[损失实现](https://github.com/Fhujinwu/TLM/blob/496c9ed97d0fb8bc4854ed2479259e7e9e70a790/src/llamafactory/train/ttl/trainer.py)。当前启动方式以本文和运行包为准。
 
 ## 3. 本轮固定设置
 
 | 项目 | 设置 |
 |---|---|
 | 数据 | 固定版本的 GeoSignal、Dolly、GSM8K，各5000条，按文件哈希核验 |
-| 可训练参数 | `q_proj`、`v_proj` 的 LoRA；rank=8，alpha=16，dropout=0，PEFT默认初始化 |
+| 可训练参数 | `q_proj`、`v_proj` 的 LoRA；rank=8，alpha=16，dropout=0 |
+| 初始化 | 显式 `init_lora_weights='gaussian'`，A为Gaussian、B为零；seed=42 |
 | 数值类型 | 原模型FP16；LoRA参数和损失计算FP32；训练使用梯度缩放 |
 | 输入长度 | 最多4096 token；超长时裁剪用户内容尾部，再重建完整模板 |
 | 优化器 | AdamW，betas=(0.9, 0.999)，eps=1e-8，weight decay=0 |
@@ -65,14 +74,16 @@ TENT 已有实现是在模型自己生成的回答上计算预测熵。这里的
 | 指标 | GeoSignal、Dolly：ROUGE-Lsum；GSM8K：官方提取器＋Exact Match |
 | 保存 | 每25步保存完整检查点，保留最近两个；另保存100、500、1000、2500、5000步的LoRA里程碑 |
 
-模型文件与模板清单见 [`profiles.json`](../offline_tta/tlm_offline_v2_bundle/profiles.json)，数据文件与哈希见 [`datasets.json`](../offline_tta/tlm_offline_v2_bundle/datasets.json)。服务器依赖版本由 `runtime.py` 核验，不另装一套环境。
+模型文件与模板清单见 [`profiles.json`](../offline_tta/tlm_offline_v3_bundle/profiles.json)，数据文件与哈希见 [`datasets.json`](../offline_tta/tlm_offline_v3_bundle/datasets.json)。服务器依赖版本由 `runtime.py` 核验，不另装一套环境。
 
 ### 与官方示例、已有TENT的差异
 
 - **精度：** 官方示例使用BF16，现有2080 Ti使用FP16。需要关注非有限损失、梯度和实际参数更新；不能保证最终分数与BF16相同。
 - **输入处理：** 固定上游处理器存在参考答案长度影响输入截断的路径。本轮先拆出纯输入文件，使训练输入不受答案内容或长度影响，并与已有Source的输入规则对齐。
-- **显存处理：** 使用分块词表投影和梯度检查点，仍覆盖整段有效输入。CPU测试比较损失与梯度，真实预检检查最长输入能否运行。
-- **对比解释：** 已有TENT使用Adam和显式Gaussian LoRA初始化，本轮TLM按固定官方配方使用AdamW和PEFT默认初始化。主表比较的是两套已登记实现，分差不能直接解释为单独更换损失函数的效果。
+- **模型规模：** 论文的Qwen主结果使用7B，本轮使用3B。Qwen3B结果单独标明规模，不能作为Qwen7B论文结果的直接复现。
+- **显存处理：** 使用分块词表投影和梯度检查点，覆盖整段有效输入。CPU损失与梯度测试通过，但真实FP16梯度比较失败；目前不能认定两条数值路径已对齐。
+- **初始化：** 固定官方源码调用PEFT默认的Kaiming uniform，与论文Gaussian不同。新主实验明确使用Gaussian；旧Kaiming运行归档为工程对照。Gaussian是复现配置要求，不以能否改善Dolly分数决定是否采用。
+- **对比解释：** 已有TENT使用Adam和Gaussian；新TLM使用AdamW、weight decay=0和Gaussian。两套实验仍存在训练设置差异，分差不能直接解释为单独更换损失函数的效果。
 
 ## 4. 从启动到完成
 
@@ -104,30 +115,22 @@ nvidia-smi
 
 `TLM_RUN` 是终端变量，另开终端后需要重新设置。看到命令提示符不代表后台任务结束，也不要据此重复启动。
 
-### 新实验：检查后启动
+### 新实验：目前只做诊断
 
-已有v1运行时，按[v2说明](../offline_tta/tlm_offline_v2_bundle/README.md)使用`--skip llama3b__gsm8k_5k`单独重跑失败的五组。下面是不带跳过参数的全新六组示例，只能在六张卡均空闲且没有重复实验时执行。
+v3已经在真实GPU上失败，重复执行同一份预检命令不会补齐诊断。下一步先补充完整梯度统计，定位误差来源；不重复启动旧v2，也不启动新的六组全量。
 
-以下命令适用于团队现有服务器，要求代码包已经上传。代码中的模型、数据、源码和Source路径也绑定该部署；迁移到其他机器需要修改配置并重新预检。
+可以先核对本地交付包和现有依赖：
 
 ```bash
 source /home/chuwenjing/TTA_LLM/TLM/local_repro/stage1/activate_tlm.sh
-cd /data/chuwenjing/tta_offline/tlm_offline_v2_bundle
+cd /data/chuwenjing/tta_offline/tlm_offline_v3_bundle
 python -B check.py
 nvidia-smi
 ```
 
-看到50项检查结束后的 `OK`，并确认所选六张卡空闲，才启动新任务：
+`Ran 60 tests`和`OK`只说明CPU检查通过，不代表GPU验收通过。新全量命令待数值问题定位、真实模型预检及小试跑通过后登记，不在当前方案保留可直接误启动的旧命令。
 
-```bash
-mkdir -p /data/chuwenjing/results/tlm_offline_v2
-TLM_RUN=/data/chuwenjing/results/tlm_offline_v2/run_$(date +%Y%m%d_%H%M%S)
-nohup python -B -u launch.py \
-  --gpus 0,1,2,3,4,5 --mode all --output "$TLM_RUN" \
-  > "${TLM_RUN}.log" 2>&1 < /dev/null &
-echo "结果目录：$TLM_RUN"
-echo "启动进程：$!"
-```
+后续Gaussian主实验必须从原模型重新创建LoRA，使用新结果目录；不能在Kaiming检查点上续训后改名为Gaussian。预检和正式运行必须匹配代码哈希、模型、数据、seed、初始化。当前运行器会核对这些身份，并要求数值及恢复检查通过；它仍允许显式Kaiming对照，结果整理时必须据运行清单区分。
 
 代码会复制到带哈希的安装快照，运行身份记录在 `launch.json` 中。结果目录必须是新目录。已有任务继续使用原快照，不在运行中替换代码或参数。
 
@@ -158,13 +161,13 @@ Source复用前会检查预测是否完整、全量输入元数据是否匹配�
 
 先看该组 `*.status.json` 指向的日志，再看阶段输出目录里的 `failure.json`（若已生成）。保留原目录、错误信息和检查点，不通过改阈值、缩短输入或升级依赖来绕过错误。
 
-恢复使用原代码快照和原参数，显式指定同一组的完整 `trainer/checkpoint-N`；先验证其中的 `commit.json` 和文件哈希。不要在仍运行的组上启动第二个恢复进程。具体参数见[运行包的恢复说明](../offline_tta/tlm_offline_v2_bundle/README.md#中断后的单组恢复)。
+恢复使用原代码快照和原参数，显式指定同一组的完整 `trainer/checkpoint-N`；先验证其中的 `commit.json` 和文件哈希。不要在仍运行的组上启动第二个恢复进程。具体参数见对应旧[运行包的恢复说明](../offline_tta/tlm_offline_v2_bundle/README.md#中断后的单组恢复)。该说明用于原v2任务，不用于启动Gaussian主实验。
 
 已知的两处兼容修订是：测试不再显式传Accelerate 1.0.1不支持的 `data_seed`；旧libc没有导出 `renameat2` 时使用Linux内核接口。完整修订包已更新校验清单；再次遇到这些错误，先核对使用的包版本。
 
 ## 6. 结果怎么整理
 
-主表每行对应一个“模型×数据集”，列出Source、TENT、TLM、TLM相对Source的分差、相对TENT的分差，以及运行目录。统一使用百分制展示；例如77.60%到78.04%写为“提高0.44个百分点”。
+主表每行对应一个“模型×数据集”，列出Source、TENT、TLM Gaussian、TLM相对Source的分差、相对TENT的分差，以及运行目录。Gaussian未完成时留空并标注阶段，不能用旧Kaiming分数填补。旧v1/v2另列工程对照表，注明初始化、数值路径和异常状态。统一使用百分制展示；例如77.60%到78.04%写为“提高0.44个百分点”。
 
 另附一张成本表，记录适应耗时、最终生成耗时、峰值显存、选中率、生成长度和达到512-token上限的比例。对重复回答、分数下降和异常输出保留样例；不能只汇总提高的组。
 
