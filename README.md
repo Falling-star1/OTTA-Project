@@ -2,7 +2,7 @@
 
 TLM主实验统一使用Gaussian A、零B；旧Kaiming结果另列工程对照。v3两组真实FP16梯度预检未通过，新全量尚未启动。当前执行依据见[TLM复现实验方案](docs/TLM复现实验方案.md)。
 
-下一步使用[独立GPU梯度诊断包](offline_tta/tlm_precision_diagnostic_bundle/README.md)，收集全部参数和五条计算路径的差异；本地65项CPU检查通过，真实GPU诊断待执行。
+完整GPU诊断已完成，差异首次出现在分块投影及其反向计算；尚未通过正式预检。见[诊断结果](docs/records/20261025/TLM完整梯度诊断结果_20261025.md)。
 
 运行核查：两组Dolly因空答或循环重复，已暂停评测，其他四组继续。见[核查结果与论文差异](docs/records/20261025/TLM运行核查与风险_20261025.md)。
 

@@ -6,7 +6,7 @@
 
 本次统一核对了模型构建、运行器和启动器的五处初始化默认值，均为`gaussian`；代码快照未改，CPU检查重新通过。见[配置核对记录](records/20261025/tlm-paper-protocol-normalization.json)。
 
-后续诊断包已准备：[完整梯度诊断与服务器命令](../offline_tta/tlm_precision_diagnostic_bundle/README.md)。原v3加新增诊断共65项CPU检查通过；新诊断尚未在真实GPU执行。它不会更新参数或启动全量，也不替代正式预检收据。见[诊断交付记录](records/20261025/tlm-precision-diagnostic-validation.json)。
+后续真实GPU诊断已完成：两组均MISMATCH，差异首次出现在128-token分块投影及其反向计算；完整前向与单块、独立多块与Trainer分别完全一致。见[完整诊断结果](records/20261025/TLM完整梯度诊断结果_20261025.md)。诊断没有更新参数或启动全量，尚需验证实际GradScaler路径。诊断包及命令保留在[独立运行说明](../offline_tta/tlm_precision_diagnostic_bundle/README.md)；65项CPU检查见[交付记录](records/20261025/tlm-precision-diagnostic-validation.json)。
 
 **16:23旧运行核查：六组适应训练均已完成；两组Dolly因空答或循环重复，已按用户要求暂停评测，其他四组继续。旧运行使用源码默认Kaiming，与论文Gaussian不同，保留为工程对照。详见[运行核查与风险说明](records/20261025/TLM运行核查与风险_20261025.md)。下文较早的进度条目保留为历史记录。**
 
@@ -119,7 +119,7 @@ nvidia-smi
 
 ### 新实验：目前只做诊断
 
-v3已经在真实GPU上失败，重复执行同一份预检命令不会补齐诊断。下一步使用上述独立诊断包，在服务器采集完整梯度统计，定位误差来源；不重复启动旧v2，也不启动新的六组全量。
+v3已经在真实GPU上失败，独立诊断也已完整采集梯度统计，差异范围缩小到分块路径。下一步补实际GradScaler缩放反传，并分开检查投影checkpoint和分块归约；不原样重复已完成的诊断，不启动新的六组全量。
 
 可以先核对本地交付包和现有依赖：
 
