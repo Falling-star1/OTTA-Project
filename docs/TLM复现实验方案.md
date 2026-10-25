@@ -8,7 +8,7 @@
 
 后续真实GPU诊断已完成：两组均MISMATCH，差异首次出现在128-token分块投影及其反向计算；完整前向与单块、独立多块与Trainer分别完全一致。见[完整诊断结果](records/20261025/TLM完整梯度诊断结果_20261025.md)。诊断没有更新参数或启动全量，尚需验证实际GradScaler路径。诊断包及命令保留在[独立运行说明](../offline_tta/tlm_precision_diagnostic_bundle/README.md)；65项CPU检查见[交付记录](records/20261025/tlm-precision-diagnostic-validation.json)。
 
-下一轮已补实际GradScaler和两条16步Trainer更新轨迹：[运行说明](../offline_tta/tlm_scaled_precision_bundle/README.md)。本地72项CPU检查通过，真实FP16结果待用户执行；这一轮仍不启动5000条全量。见[缩放与更新验证交付记录](records/20261025/tlm-scaled-probe-validation.json)。
+实际GradScaler和16步Trainer更新对照已在真实GPU完成：四条轨迹均成功更新16次、基座未变。缩放后整体梯度差显著减小，但逐元素标准仍未通过；下一步检查末块投影形状和求和顺序。见[缩放与更新实测结果](records/20261025/TLM缩放与16步更新结果_20261025.md)。仍未启动新全量。原[运行说明](../offline_tta/tlm_scaled_precision_bundle/README.md)及[72项CPU交付记录](records/20261025/tlm-scaled-probe-validation.json)保留追溯。
 
 **16:23旧运行核查：六组适应训练均已完成；两组Dolly因空答或循环重复，已按用户要求暂停评测，其他四组继续。旧运行使用源码默认Kaiming，与论文Gaussian不同，保留为工程对照。详见[运行核查与风险说明](records/20261025/TLM运行核查与风险_20261025.md)。下文较早的进度条目保留为历史记录。**
 
