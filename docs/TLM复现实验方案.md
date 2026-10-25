@@ -1,6 +1,8 @@
 # TLM 复现实验方案
 
-**最新验证：v3两组Dolly的真实FP16预检在梯度对齐处失败，尚不能启动v3全量。见[GPU验证结果](records/20261025/TLM_v3真实GPU验证失败_20261025.md)。**
+**当前候选：v4已直接修订末块投影和FP32归约，67项CPU检查通过，真实GPU完整预检待执行。见[v4修订与命令](../offline_tta/tlm_offline_v4_bundle/README.md)。**
+
+**此前验证：v3两组Dolly的真实FP16预检在梯度对齐处失败，尚不能启动v3全量。见[GPU验证结果](records/20261025/TLM_v3真实GPU验证失败_20261025.md)。**
 
 正式配置：LoRA A使用Gaussian初始化，B置零。v3已采用这一默认值，并修订分块训练的autocast路径、增加输出质量检查。本地60项检查通过，但两组真实FP16预检均在梯度比较处失败，未替换旧运行。见[修复选择与验证步骤](records/20261025/TLM修复选择与v3验证.md)。
 
@@ -33,7 +35,7 @@
 ### 当前进度
 
 - 六组 TENT 已完成，结果从原运行目录汇总。
-- 当前候选包为 [`offline_tta/tlm_offline_v3_bundle`](../offline_tta/tlm_offline_v3_bundle/README.md)，默认Gaussian。它尚未通过真实GPU梯度验收，不能启动新全量。
+- 当前候选包为[v4训练修订包](../offline_tta/tlm_offline_v4_bundle/README.md)，默认Gaussian，直接修订末块投影和求和顺序；67项CPU检查通过，真实GPU完整预检待执行。
 - 2026-10-25 16:23核查：旧v1/v2六组已完成5000条适应。两组Dolly因空答或循环重复暂停评测，其他四组按既有安排继续。旧任务沿用各自代码、初始化和输出目录。
 - 2026-10-25 17:33核查：v3两组Dolly预检均在梯度对齐处失败，16步保存恢复测试尚未执行，没有启动v3的5000条适应或评测。GPU验证记录见本文开头链接。
 
@@ -78,7 +80,7 @@ TENT 已有实现是在模型自己生成的回答上计算预测熵。这里的
 | 指标 | GeoSignal、Dolly：ROUGE-Lsum；GSM8K：官方提取器＋Exact Match |
 | 保存 | 每25步保存完整检查点，保留最近两个；另保存100、500、1000、2500、5000步的LoRA里程碑 |
 
-模型文件与模板清单见 [`profiles.json`](../offline_tta/tlm_offline_v3_bundle/profiles.json)，数据文件与哈希见 [`datasets.json`](../offline_tta/tlm_offline_v3_bundle/datasets.json)。服务器依赖版本由 `runtime.py` 核验，不另装一套环境。
+模型文件与模板清单见 [`profiles.json`](../offline_tta/tlm_offline_v4_bundle/profiles.json)，数据文件与哈希见 [`datasets.json`](../offline_tta/tlm_offline_v4_bundle/datasets.json)。服务器依赖版本由 `runtime.py` 核验，不另装一套环境。
 
 ### 与官方示例、已有TENT的差异
 
@@ -119,20 +121,20 @@ nvidia-smi
 
 `TLM_RUN` 是终端变量，另开终端后需要重新设置。看到命令提示符不代表后台任务结束，也不要据此重复启动。
 
-### 新实验：目前只做诊断
+### 新实验：v4先做完整预检
 
-v3已经在真实GPU上失败，独立诊断也已完整采集梯度统计，差异范围缩小到分块路径。下一步补实际GradScaler缩放反传，并分开检查投影checkpoint和分块归约；不原样重复已完成的诊断，不启动新的六组全量。
+实际GradScaler和16步对照已经完成，逐元素验收仍未过。v4现已直接修改分块计算，下一步按v4运行说明进行两组Dolly完整预检；不重复旧诊断，不启动新全量。
 
 可以先核对本地交付包和现有依赖：
 
 ```bash
 source /home/chuwenjing/TTA_LLM/TLM/local_repro/stage1/activate_tlm.sh
-cd /data/chuwenjing/tta_offline/tlm_offline_v3_bundle
+cd /data/chuwenjing/tta_offline/tlm_offline_v4_bundle
 python -B check.py
 nvidia-smi
 ```
 
-`Ran 60 tests`和`OK`只说明CPU检查通过，不代表GPU验收通过。新全量命令待数值问题定位、真实模型预检及小试跑通过后登记，不在当前方案保留可直接误启动的旧命令。
+`Ran 67 tests`和`OK`只说明CPU检查通过，不代表GPU验收通过。新全量命令待数值问题定位、真实模型预检及小试跑通过后登记，不在当前方案保留可直接误启动的旧命令。
 
 后续Gaussian主实验必须从原模型重新创建LoRA，使用新结果目录；不能在Kaiming检查点上续训后改名为Gaussian。预检和正式运行必须匹配代码哈希、模型、数据、seed、初始化。当前运行器会核对这些身份，并要求数值及恢复检查通过；它仍允许显式Kaiming对照，结果整理时必须据运行清单区分。
 
