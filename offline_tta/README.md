@@ -1,6 +1,6 @@
 # 已交付源码包
 
-当前训练固定使用 [TLM v6](tlm_offline_v6_bundle/README.md)，新建六组运行使用 [控制器 v2](tlm_full_run_gate_v2/README.md)。四组全量评测继续，Llama Dolly 质量报警停评，Qwen Dolly 由 [单组重新验证](tlm_single_recovery/README.md) 补齐。见 [当前方案](../docs/TLM复现实验方案.md)。
+训练固定使用 [TLM v6](tlm_offline_v6_bundle/README.md)，六组各 5000 条适应已完成。目前使用 [完整评测接续入口](tlm_evaluate_all_v1/README.md) 补齐六组各 5000 条回答；质量报警如实记录并继续评测，不调参追分。见 [当前方案](../docs/TLM复现实验方案.md)。
 
 以下为 TENT 交付时的历史入口。
 
