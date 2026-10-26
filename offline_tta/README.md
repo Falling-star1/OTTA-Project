@@ -1,6 +1,6 @@
 # 已交付源码包
 
-当前 TLM 入口是 [v6 训练包](tlm_offline_v6_bundle/README.md) 和 [六组统一检查控制器](tlm_full_run_gate/README.md)。六组真实预检通过，正在做各 100 条验证；旧 v1/v2 已停止。详见 [当前方案](../docs/TLM复现实验方案.md)。
+当前训练固定使用 [TLM v6](tlm_offline_v6_bundle/README.md)，新建六组运行使用 [控制器 v2](tlm_full_run_gate_v2/README.md)。四组全量评测继续，Llama Dolly 质量报警停评，Qwen Dolly 由 [单组重新验证](tlm_single_recovery/README.md) 补齐。见 [当前方案](../docs/TLM复现实验方案.md)。
 
 以下为 TENT 交付时的历史入口。
 
