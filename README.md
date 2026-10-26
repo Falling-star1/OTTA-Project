@@ -1,4 +1,4 @@
-# TLM 文本测试时适应：团队复现项目
+# llm-tta-lab · 大语言模型测试时自适应
 
 当前工作是基于固定 TLM 源码，在文本任务上复现与适配 Tent、EATA、SAR、DeYO，并在基线可靠后研究 OPUS proxy pool。旧 OTTA 自研选样计划已归档，不再作为当前执行要求。
 
