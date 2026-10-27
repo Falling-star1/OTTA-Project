@@ -1,10 +1,10 @@
 {
-  "time_beijing": "2026-10-27 08:45",
+  "time_beijing": "2026-10-27 15:47",
   "main_evaluation_snapshot": {
     "read_only": true,
     "checks": [
       {
-        "time_utc": "2026-10-27T00:45:05.219051+00:00",
+        "time_utc": "2026-10-27T07:48:22.825487+00:00",
         "cohort_root": "/data/chuwenjing/results/tlm_eval_complete_v6/run_20261026_052804_45ad81",
         "supervisor_status": {
           "status": "RUNNING",
@@ -172,16 +172,16 @@
                 "log": "/data/chuwenjing/results/tlm_eval_complete_v6/run_20261026_052804_45ad81/qwen3b__dolly_5k.log"
               },
               "existing_pid": 35238,
-              "predictions_complete": 3653,
+              "predictions_complete": 4969,
               "original_failure": null,
               "continuation_failure": null,
               "quality_latest": {
                 "status": "ALERT",
-                "window_start": 3500,
+                "window_start": 4800,
                 "n": 100,
                 "tlm": {
-                  "empty": 8,
-                  "repetition": 5
+                  "empty": 17,
+                  "repetition": 3
                 },
                 "source": {
                   "empty": 0,
@@ -194,7 +194,7 @@
                 "dominant_answer": {
                   "tlm_count": 1,
                   "source_count": 0,
-                  "text": "twice-born, bearded god, long-haired youth, thyrsus, drinking cup, grape vine, ivy, satyrs, maenads, silenus, dolphin, serpent, tiger, donkey",
+                  "text": "#### response: surfing in california has its roots in the early 20th century, with the introduction of the sport by henry e. huntington, a land baron who was interested in attracti",
                   "share_threshold": 0.5,
                   "excess_rate_threshold": 0.1
                 }
@@ -210,12 +210,12 @@
               "status": "ACTIVE",
               "continuation": null,
               "existing_pid": 32227,
-              "predictions_complete": 3034,
+              "predictions_complete": 3995,
               "original_failure": null,
               "continuation_failure": null,
               "quality_latest": {
                 "status": "PASS",
-                "window_start": 2900,
+                "window_start": 3800,
                 "n": 100,
                 "tlm": {
                   "empty": 0,
@@ -230,7 +230,7 @@
                 "dominant_answer": {
                   "tlm_count": 1,
                   "source_count": 0,
-                  "text": "certainly! let's break this down step by step. 1. **determine how many apples bella eats in a week:** bella eats 6 apples a day. there are 7 days in a week. so, in one week, bella ",
+                  "text": "sure, let's solve this step by step. 1. **identify the number of yellow highlighters:** - carrie has 7 yellow highlighters. 2. **determine the number of pink highlighters:** - ther",
                   "share_threshold": 0.5,
                   "excess_rate_threshold": 0.1
                 }
@@ -241,7 +241,7 @@
           "quality_policy": "record_and_continue",
           "training_performed": false,
           "completion_does_not_imply_quality_pass": true,
-          "time": 1793061903.3803334
+          "time": 1793087295.7001126
         }
       },
       {
@@ -605,11 +605,11 @@
         },
         "quality_latest.json": {
           "status": "ALERT",
-          "window_start": 3500,
+          "window_start": 4800,
           "n": 100,
           "tlm": {
-            "empty": 8,
-            "repetition": 5
+            "empty": 17,
+            "repetition": 3
           },
           "source": {
             "empty": 0,
@@ -622,12 +622,12 @@
           "dominant_answer": {
             "tlm_count": 1,
             "source_count": 0,
-            "text": "twice-born, bearded god, long-haired youth, thyrsus, drinking cup, grape vine, ivy, satyrs, maenads, silenus, dolphin, serpent, tiger, donkey",
+            "text": "#### response: surfing in california has its roots in the early 20th century, with the introduction of the sport by henry e. huntington, a land baron who was interested in attracti",
             "share_threshold": 0.5,
             "excess_rate_threshold": 0.1
           }
         },
-        "prediction_count": 3654,
+        "prediction_count": 4969,
         "resume_verification": {
           "code_id": "b6da067b55f5c65241ae6fbd8c706b88523f64b27dd9568ad5661255b89d7999",
           "evaluation_driver_sha256": "bb8abbebd9d32428122f4667efd061b580340cd0e0c44ac4abbb4994a3cd64cf",
@@ -652,7 +652,7 @@
             false
           ]
         },
-        "continuation_log_tail": "ted\": 3100, \"total\": 5000, \"seconds\": 58439.801195293665}\n{\"phase\": \"evaluation\", \"completed\": 3125, \"total\": 5000, \"seconds\": 58870.071568623185}\n{\"phase\": \"evaluation\", \"completed\": 3150, \"total\": 5000, \"seconds\": 59358.459458231926}\n{\"phase\": \"evaluation\", \"completed\": 3175, \"total\": 5000, \"seconds\": 59799.345098525286}\n{\"phase\": \"evaluation\", \"completed\": 3200, \"total\": 5000, \"seconds\": 60242.198080569506}\n{\"phase\": \"evaluation\", \"completed\": 3225, \"total\": 5000, \"seconds\": 60797.41930966079}\n{\"phase\": \"evaluation\", \"completed\": 3250, \"total\": 5000, \"seconds\": 61206.29224909842}\n{\"phase\": \"evaluation\", \"completed\": 3275, \"total\": 5000, \"seconds\": 61802.80751611292}\n{\"phase\": \"evaluation\", \"completed\": 3300, \"total\": 5000, \"seconds\": 62210.33994959295}\n{\"phase\": \"evaluation\", \"completed\": 3325, \"total\": 5000, \"seconds\": 62786.01583023369}\n{\"phase\": \"evaluation\", \"completed\": 3350, \"total\": 5000, \"seconds\": 63170.37662085891}\n{\"phase\": \"evaluation\", \"completed\": 3375, \"total\": 5000, \"seconds\": 63759.317934930325}\n{\"phase\": \"evaluation\", \"completed\": 3400, \"total\": 5000, \"seconds\": 64160.20885786414}\n{\"phase\": \"evaluation\", \"completed\": 3425, \"total\": 5000, \"seconds\": 64711.52998445928}\n{\"phase\": \"evaluation\", \"completed\": 3450, \"total\": 5000, \"seconds\": 65147.983129009604}\n{\"phase\": \"evaluation\", \"completed\": 3475, \"total\": 5000, \"seconds\": 65665.26117384434}\n{\"phase\": \"evaluation\", \"completed\": 3500, \"total\": 5000, \"seconds\": 66197.73527185619}\n{\"phase\": \"evaluation\", \"completed\": 3525, \"total\": 5000, \"seconds\": 66691.68935108185}\n{\"phase\": \"evaluation\", \"completed\": 3550, \"total\": 5000, \"seconds\": 67257.85047917068}\n{\"phase\": \"evaluation\", \"completed\": 3575, \"total\": 5000, \"seconds\": 67859.27575220168}\n{\"phase\": \"evaluation\", \"completed\": 3600, \"total\": 5000, \"seconds\": 68218.35094797611}\n{\"phase\": \"evaluation\", \"completed\": 3625, \"total\": 5000, \"seconds\": 68668.03488257527}\n{\"phase\": \"evaluation\", \"completed\": 3650, \"total\": 5000, \"seconds\": 69172.97651062906}\n"
+        "continuation_log_tail": "\", \"completed\": 4400, \"total\": 5000, \"seconds\": 83730.90953345597}\n{\"phase\": \"evaluation\", \"completed\": 4425, \"total\": 5000, \"seconds\": 84235.21906249225}\n{\"phase\": \"evaluation\", \"completed\": 4450, \"total\": 5000, \"seconds\": 84602.50609572232}\n{\"phase\": \"evaluation\", \"completed\": 4475, \"total\": 5000, \"seconds\": 85153.62099602818}\n{\"phase\": \"evaluation\", \"completed\": 4500, \"total\": 5000, \"seconds\": 85720.94128453732}\n{\"phase\": \"evaluation\", \"completed\": 4525, \"total\": 5000, \"seconds\": 86285.51948316395}\n{\"phase\": \"evaluation\", \"completed\": 4550, \"total\": 5000, \"seconds\": 86713.94054825604}\n{\"phase\": \"evaluation\", \"completed\": 4575, \"total\": 5000, \"seconds\": 87198.92124380171}\n{\"phase\": \"evaluation\", \"completed\": 4600, \"total\": 5000, \"seconds\": 87578.3243021518}\n{\"phase\": \"evaluation\", \"completed\": 4625, \"total\": 5000, \"seconds\": 88108.55691701174}\n{\"phase\": \"evaluation\", \"completed\": 4650, \"total\": 5000, \"seconds\": 88629.46616372466}\n{\"phase\": \"evaluation\", \"completed\": 4675, \"total\": 5000, \"seconds\": 89161.34891940653}\n{\"phase\": \"evaluation\", \"completed\": 4700, \"total\": 5000, \"seconds\": 89661.92861485481}\n{\"phase\": \"evaluation\", \"completed\": 4725, \"total\": 5000, \"seconds\": 90437.61179940403}\n{\"phase\": \"evaluation\", \"completed\": 4750, \"total\": 5000, \"seconds\": 90877.31459337473}\n{\"phase\": \"evaluation\", \"completed\": 4775, \"total\": 5000, \"seconds\": 91387.9001763612}\n{\"phase\": \"evaluation\", \"completed\": 4800, \"total\": 5000, \"seconds\": 91755.22971180081}\n{\"phase\": \"evaluation\", \"completed\": 4825, \"total\": 5000, \"seconds\": 92142.60670502484}\n{\"phase\": \"evaluation\", \"completed\": 4850, \"total\": 5000, \"seconds\": 92510.21080717444}\n{\"phase\": \"evaluation\", \"completed\": 4875, \"total\": 5000, \"seconds\": 92972.9100793302}\n{\"phase\": \"evaluation\", \"completed\": 4900, \"total\": 5000, \"seconds\": 93420.88881798089}\n{\"phase\": \"evaluation\", \"completed\": 4925, \"total\": 5000, \"seconds\": 93889.62088315189}\n{\"phase\": \"evaluation\", \"completed\": 4950, \"total\": 5000, \"seconds\": 94270.30608557165}\n"
       },
       {
         "model": "qwen3b",
@@ -678,7 +678,7 @@
         },
         "quality_latest.json": {
           "status": "PASS",
-          "window_start": 2900,
+          "window_start": 3800,
           "n": 100,
           "tlm": {
             "empty": 0,
@@ -693,15 +693,15 @@
           "dominant_answer": {
             "tlm_count": 1,
             "source_count": 0,
-            "text": "certainly! let's break this down step by step. 1. **determine how many apples bella eats in a week:** bella eats 6 apples a day. there are 7 days in a week. so, in one week, bella ",
+            "text": "sure, let's solve this step by step. 1. **identify the number of yellow highlighters:** - carrie has 7 yellow highlighters. 2. **determine the number of pink highlighters:** - ther",
             "share_threshold": 0.5,
             "excess_rate_threshold": 0.1
           }
         },
-        "prediction_count": 3034
+        "prediction_count": 3995
       },
       {
-        "gpu": "0, 1, 0\n1, 7865, 28\n2, 7865, 27\n3, 7867, 27\n4, 9375, 19\n5, 7759, 19\n6, 7725, 16\n7, 9373, 31\n"
+        "gpu": "0, 1, 0\n1, 1, 0\n2, 1, 0\n3, 1, 0\n4, 1, 0\n5, 7759, 20\n6, 7725, 20\n7, 1, 0\n"
       }
     ],
     "exit_status": 0
@@ -710,7 +710,7 @@
     "read_only": true,
     "checks": [
       {
-        "time_utc": "2026-10-27T00:45:08.385142+00:00"
+        "time_utc": "2026-10-27T07:47:59.503536+00:00"
       },
       {
         "kind": "dolly",
@@ -919,14 +919,24 @@
       {
         "kind": "dolly",
         "task": "qwen3b__wrapper_masked",
-        "state": "ACTIVE",
-        "step": 950
+        "state": "FAILED",
+        "failure.json": {
+          "type": "ValueError",
+          "error": "Original trajectory controls differ: {'sample_order_exact': True, 'max_base_ce_difference': 0.0, 'max_weight_difference': 0.0, 'learning_rates_exact': False}",
+          "seconds": 833.8230414539576
+        },
+        "step": 1000
       },
       {
         "kind": "dolly",
         "task": "qwen3b__both_masked",
-        "state": "ACTIVE",
-        "step": 800
+        "state": "FAILED",
+        "failure.json": {
+          "type": "ValueError",
+          "error": "Original trajectory controls differ: {'sample_order_exact': True, 'max_base_ce_difference': 0.0, 'max_weight_difference': 0.0, 'learning_rates_exact': False}",
+          "seconds": 810.4146007150412
+        },
+        "step": 1000
       },
       {
         "kind": "gsm",
@@ -1102,8 +1112,94 @@
             }
           ]
         },
-        "step": 1100,
-        "tail": "t\": 0.0,\n  \"bos_token_id\": 128000,\n  \"eos_token_id\": [\n    128001,\n    128008,\n    128009\n  ],\n  \"head_dim\": 128,\n  \"hidden_act\": \"silu\",\n  \"hidden_size\": 3072,\n  \"initializer_range\": 0.02,\n  \"intermediate_size\": 8192,\n  \"max_position_embeddings\": 131072,\n  \"mlp_bias\": false,\n  \"model_type\": \"llama\",\n  \"num_attention_heads\": 24,\n  \"num_hidden_layers\": 28,\n  \"num_key_value_heads\": 8,\n  \"pretraining_tp\": 1,\n  \"rms_norm_eps\": 1e-05,\n  \"rope_scaling\": {\n    \"factor\": 32.0,\n    \"high_freq_factor\": 4.0,\n    \"low_freq_factor\": 1.0,\n    \"original_max_position_embeddings\": 8192,\n    \"rope_type\": \"llama3\"\n  },\n  \"rope_theta\": 500000.0,\n  \"tie_word_embeddings\": true,\n  \"torch_dtype\": \"bfloat16\",\n  \"transformers_version\": \"4.46.1\",\n  \"use_cache\": true,\n  \"vocab_size\": 128256\n}\n\n[INFO|trainer.py:3893] 2026-10-27 00:45:00,068 >> Deleting older checkpoint [/data/chuwenjing/results/tlm_gsm_transition_controls/run_20261027_003255_5dcc17/hint_masked/trainer/checkpoint-1050] due to args.save_total_limit\n"
+        "controls.json": {
+          "sample_order_exact": true,
+          "learning_rates_exact": true,
+          "max_base_ce_difference": 0.0,
+          "max_weight_difference": 0.0
+        },
+        "status.json": {
+          "status": "EVALUATING",
+          "label": "transition_control",
+          "mode": "hint_masked"
+        },
+        "comparisons.json": [
+          {
+            "label": "original_step2500",
+            "n": 100,
+            "stop_after_forced_stub": 14,
+            "mean_p_stop_after_forced_stub": 0.1829746549279662,
+            "generated_n": 8,
+            "stub_only_n": 0,
+            "small_set_em": 1.0,
+            "not_a_full_score": true
+          },
+          {
+            "label": "transition_control",
+            "n": 100,
+            "stop_after_forced_stub": 2,
+            "mean_p_stop_after_forced_stub": 0.06143351880484261,
+            "generated_n": 8,
+            "stub_only_n": 0,
+            "small_set_em": 1.0,
+            "not_a_full_score": true
+          }
+        ],
+        "summary.json": {
+          "status": "COMPLETE",
+          "mode": "hint_masked",
+          "diagnostic_only": true,
+          "steps": 2500,
+          "lr": 1e-06,
+          "controls": {
+            "sample_order_exact": true,
+            "learning_rates_exact": true,
+            "max_base_ce_difference": 0.0,
+            "max_weight_difference": 0.0
+          },
+          "optimizer": {
+            "successful_optimizer_steps": 2500,
+            "skipped_optimizer_steps": 0,
+            "adapter_parameters_finite": true,
+            "optimizer_state_finite": true
+          },
+          "final_inference_replay": [
+            {
+              "source_index": 0,
+              "generated_ids_exact": true
+            },
+            {
+              "source_index": 99,
+              "generated_ids_exact": true
+            }
+          ],
+          "comparisons": [
+            {
+              "label": "original_step2500",
+              "n": 100,
+              "stop_after_forced_stub": 14,
+              "mean_p_stop_after_forced_stub": 0.1829746549279662,
+              "generated_n": 8,
+              "stub_only_n": 0,
+              "small_set_em": 1.0,
+              "not_a_full_score": true
+            },
+            {
+              "label": "transition_control",
+              "n": 100,
+              "stop_after_forced_stub": 2,
+              "mean_p_stop_after_forced_stub": 0.06143351880484261,
+              "generated_n": 8,
+              "stub_only_n": 0,
+              "small_set_em": 1.0,
+              "not_a_full_score": true
+            }
+          ],
+          "original_runs_modified": false,
+          "seconds": 1773.994040325284
+        },
+        "step": 2500,
+        "tail": "odels/Llama-3.2-3B-Instruct/config.json\n[INFO|configuration_utils.py:746] 2026-10-27 00:59:43,976 >> Model config LlamaConfig {\n  \"architectures\": [\n    \"LlamaForCausalLM\"\n  ],\n  \"attention_bias\": false,\n  \"attention_dropout\": 0.0,\n  \"bos_token_id\": 128000,\n  \"eos_token_id\": [\n    128001,\n    128008,\n    128009\n  ],\n  \"head_dim\": 128,\n  \"hidden_act\": \"silu\",\n  \"hidden_size\": 3072,\n  \"initializer_range\": 0.02,\n  \"intermediate_size\": 8192,\n  \"max_position_embeddings\": 131072,\n  \"mlp_bias\": false,\n  \"model_type\": \"llama\",\n  \"num_attention_heads\": 24,\n  \"num_hidden_layers\": 28,\n  \"num_key_value_heads\": 8,\n  \"pretraining_tp\": 1,\n  \"rms_norm_eps\": 1e-05,\n  \"rope_scaling\": {\n    \"factor\": 32.0,\n    \"high_freq_factor\": 4.0,\n    \"low_freq_factor\": 1.0,\n    \"original_max_position_embeddings\": 8192,\n    \"rope_type\": \"llama3\"\n  },\n  \"rope_theta\": 500000.0,\n  \"tie_word_embeddings\": true,\n  \"torch_dtype\": \"bfloat16\",\n  \"transformers_version\": \"4.46.1\",\n  \"use_cache\": true,\n  \"vocab_size\": 128256\n}\n\n"
       },
       {
         "kind": "gsm_control",
@@ -1131,8 +1227,94 @@
             }
           ]
         },
-        "step": 1100,
-        "tail": "ut\": 0.0,\n  \"bos_token_id\": 128000,\n  \"eos_token_id\": [\n    128001,\n    128008,\n    128009\n  ],\n  \"head_dim\": 128,\n  \"hidden_act\": \"silu\",\n  \"hidden_size\": 3072,\n  \"initializer_range\": 0.02,\n  \"intermediate_size\": 8192,\n  \"max_position_embeddings\": 131072,\n  \"mlp_bias\": false,\n  \"model_type\": \"llama\",\n  \"num_attention_heads\": 24,\n  \"num_hidden_layers\": 28,\n  \"num_key_value_heads\": 8,\n  \"pretraining_tp\": 1,\n  \"rms_norm_eps\": 1e-05,\n  \"rope_scaling\": {\n    \"factor\": 32.0,\n    \"high_freq_factor\": 4.0,\n    \"low_freq_factor\": 1.0,\n    \"original_max_position_embeddings\": 8192,\n    \"rope_type\": \"llama3\"\n  },\n  \"rope_theta\": 500000.0,\n  \"tie_word_embeddings\": true,\n  \"torch_dtype\": \"bfloat16\",\n  \"transformers_version\": \"4.46.1\",\n  \"use_cache\": true,\n  \"vocab_size\": 128256\n}\n\n[INFO|trainer.py:3893] 2026-10-27 00:45:06,190 >> Deleting older checkpoint [/data/chuwenjing/results/tlm_gsm_transition_controls/run_20261027_003255_5dcc17/eot_masked/trainer/checkpoint-1050] due to args.save_total_limit\n"
+        "controls.json": {
+          "sample_order_exact": true,
+          "learning_rates_exact": true,
+          "max_base_ce_difference": 0.0,
+          "max_weight_difference": 0.0
+        },
+        "status.json": {
+          "status": "EVALUATING",
+          "label": "transition_control",
+          "mode": "eot_masked"
+        },
+        "comparisons.json": [
+          {
+            "label": "original_step2500",
+            "n": 100,
+            "stop_after_forced_stub": 14,
+            "mean_p_stop_after_forced_stub": 0.1829746549279662,
+            "generated_n": 8,
+            "stub_only_n": 0,
+            "small_set_em": 1.0,
+            "not_a_full_score": true
+          },
+          {
+            "label": "transition_control",
+            "n": 100,
+            "stop_after_forced_stub": 0,
+            "mean_p_stop_after_forced_stub": 0.016891979805041046,
+            "generated_n": 8,
+            "stub_only_n": 0,
+            "small_set_em": 0.875,
+            "not_a_full_score": true
+          }
+        ],
+        "summary.json": {
+          "status": "COMPLETE",
+          "mode": "eot_masked",
+          "diagnostic_only": true,
+          "steps": 2500,
+          "lr": 1e-06,
+          "controls": {
+            "sample_order_exact": true,
+            "learning_rates_exact": true,
+            "max_base_ce_difference": 0.0,
+            "max_weight_difference": 0.0
+          },
+          "optimizer": {
+            "successful_optimizer_steps": 2500,
+            "skipped_optimizer_steps": 0,
+            "adapter_parameters_finite": true,
+            "optimizer_state_finite": true
+          },
+          "final_inference_replay": [
+            {
+              "source_index": 0,
+              "generated_ids_exact": true
+            },
+            {
+              "source_index": 99,
+              "generated_ids_exact": true
+            }
+          ],
+          "comparisons": [
+            {
+              "label": "original_step2500",
+              "n": 100,
+              "stop_after_forced_stub": 14,
+              "mean_p_stop_after_forced_stub": 0.1829746549279662,
+              "generated_n": 8,
+              "stub_only_n": 0,
+              "small_set_em": 1.0,
+              "not_a_full_score": true
+            },
+            {
+              "label": "transition_control",
+              "n": 100,
+              "stop_after_forced_stub": 0,
+              "mean_p_stop_after_forced_stub": 0.016891979805041046,
+              "generated_n": 8,
+              "stub_only_n": 0,
+              "small_set_em": 0.875,
+              "not_a_full_score": true
+            }
+          ],
+          "original_runs_modified": false,
+          "seconds": 1800.9608516693115
+        },
+        "step": 2500,
+        "tail": "odels/Llama-3.2-3B-Instruct/config.json\n[INFO|configuration_utils.py:746] 2026-10-27 01:00:07,919 >> Model config LlamaConfig {\n  \"architectures\": [\n    \"LlamaForCausalLM\"\n  ],\n  \"attention_bias\": false,\n  \"attention_dropout\": 0.0,\n  \"bos_token_id\": 128000,\n  \"eos_token_id\": [\n    128001,\n    128008,\n    128009\n  ],\n  \"head_dim\": 128,\n  \"hidden_act\": \"silu\",\n  \"hidden_size\": 3072,\n  \"initializer_range\": 0.02,\n  \"intermediate_size\": 8192,\n  \"max_position_embeddings\": 131072,\n  \"mlp_bias\": false,\n  \"model_type\": \"llama\",\n  \"num_attention_heads\": 24,\n  \"num_hidden_layers\": 28,\n  \"num_key_value_heads\": 8,\n  \"pretraining_tp\": 1,\n  \"rms_norm_eps\": 1e-05,\n  \"rope_scaling\": {\n    \"factor\": 32.0,\n    \"high_freq_factor\": 4.0,\n    \"low_freq_factor\": 1.0,\n    \"original_max_position_embeddings\": 8192,\n    \"rope_type\": \"llama3\"\n  },\n  \"rope_theta\": 500000.0,\n  \"tie_word_embeddings\": true,\n  \"torch_dtype\": \"bfloat16\",\n  \"transformers_version\": \"4.46.1\",\n  \"use_cache\": true,\n  \"vocab_size\": 128256\n}\n\n"
       },
       {
         "kind": "gsm_control",
@@ -1160,20 +1342,1052 @@
             }
           ]
         },
-        "step": 1100,
-        "tail": "t\": 0.0,\n  \"bos_token_id\": 128000,\n  \"eos_token_id\": [\n    128001,\n    128008,\n    128009\n  ],\n  \"head_dim\": 128,\n  \"hidden_act\": \"silu\",\n  \"hidden_size\": 3072,\n  \"initializer_range\": 0.02,\n  \"intermediate_size\": 8192,\n  \"max_position_embeddings\": 131072,\n  \"mlp_bias\": false,\n  \"model_type\": \"llama\",\n  \"num_attention_heads\": 24,\n  \"num_hidden_layers\": 28,\n  \"num_key_value_heads\": 8,\n  \"pretraining_tp\": 1,\n  \"rms_norm_eps\": 1e-05,\n  \"rope_scaling\": {\n    \"factor\": 32.0,\n    \"high_freq_factor\": 4.0,\n    \"low_freq_factor\": 1.0,\n    \"original_max_position_embeddings\": 8192,\n    \"rope_type\": \"llama3\"\n  },\n  \"rope_theta\": 500000.0,\n  \"tie_word_embeddings\": true,\n  \"torch_dtype\": \"bfloat16\",\n  \"transformers_version\": \"4.46.1\",\n  \"use_cache\": true,\n  \"vocab_size\": 128256\n}\n\n[INFO|trainer.py:3893] 2026-10-27 00:45:01,841 >> Deleting older checkpoint [/data/chuwenjing/results/tlm_gsm_transition_controls/run_20261027_003255_5dcc17/both_masked/trainer/checkpoint-1050] due to args.save_total_limit\n"
+        "controls.json": {
+          "sample_order_exact": true,
+          "learning_rates_exact": true,
+          "max_base_ce_difference": 0.0,
+          "max_weight_difference": 0.0
+        },
+        "status.json": {
+          "status": "EVALUATING",
+          "label": "transition_control",
+          "mode": "both_masked"
+        },
+        "comparisons.json": [
+          {
+            "label": "original_step2500",
+            "n": 100,
+            "stop_after_forced_stub": 14,
+            "mean_p_stop_after_forced_stub": 0.1829746549279662,
+            "generated_n": 8,
+            "stub_only_n": 0,
+            "small_set_em": 1.0,
+            "not_a_full_score": true
+          },
+          {
+            "label": "transition_control",
+            "n": 100,
+            "stop_after_forced_stub": 0,
+            "mean_p_stop_after_forced_stub": 0.0035976972351636507,
+            "generated_n": 8,
+            "stub_only_n": 0,
+            "small_set_em": 0.75,
+            "not_a_full_score": true
+          }
+        ],
+        "summary.json": {
+          "status": "COMPLETE",
+          "mode": "both_masked",
+          "diagnostic_only": true,
+          "steps": 2500,
+          "lr": 1e-06,
+          "controls": {
+            "sample_order_exact": true,
+            "learning_rates_exact": true,
+            "max_base_ce_difference": 0.0,
+            "max_weight_difference": 0.0
+          },
+          "optimizer": {
+            "successful_optimizer_steps": 2500,
+            "skipped_optimizer_steps": 0,
+            "adapter_parameters_finite": true,
+            "optimizer_state_finite": true
+          },
+          "final_inference_replay": [
+            {
+              "source_index": 0,
+              "generated_ids_exact": true
+            },
+            {
+              "source_index": 99,
+              "generated_ids_exact": true
+            }
+          ],
+          "comparisons": [
+            {
+              "label": "original_step2500",
+              "n": 100,
+              "stop_after_forced_stub": 14,
+              "mean_p_stop_after_forced_stub": 0.1829746549279662,
+              "generated_n": 8,
+              "stub_only_n": 0,
+              "small_set_em": 1.0,
+              "not_a_full_score": true
+            },
+            {
+              "label": "transition_control",
+              "n": 100,
+              "stop_after_forced_stub": 0,
+              "mean_p_stop_after_forced_stub": 0.0035976972351636507,
+              "generated_n": 8,
+              "stub_only_n": 0,
+              "small_set_em": 0.75,
+              "not_a_full_score": true
+            }
+          ],
+          "original_runs_modified": false,
+          "seconds": 1767.133690416813
+        },
+        "step": 2500,
+        "tail": "odels/Llama-3.2-3B-Instruct/config.json\n[INFO|configuration_utils.py:746] 2026-10-27 00:59:34,876 >> Model config LlamaConfig {\n  \"architectures\": [\n    \"LlamaForCausalLM\"\n  ],\n  \"attention_bias\": false,\n  \"attention_dropout\": 0.0,\n  \"bos_token_id\": 128000,\n  \"eos_token_id\": [\n    128001,\n    128008,\n    128009\n  ],\n  \"head_dim\": 128,\n  \"hidden_act\": \"silu\",\n  \"hidden_size\": 3072,\n  \"initializer_range\": 0.02,\n  \"intermediate_size\": 8192,\n  \"max_position_embeddings\": 131072,\n  \"mlp_bias\": false,\n  \"model_type\": \"llama\",\n  \"num_attention_heads\": 24,\n  \"num_hidden_layers\": 28,\n  \"num_key_value_heads\": 8,\n  \"pretraining_tp\": 1,\n  \"rms_norm_eps\": 1e-05,\n  \"rope_scaling\": {\n    \"factor\": 32.0,\n    \"high_freq_factor\": 4.0,\n    \"low_freq_factor\": 1.0,\n    \"original_max_position_embeddings\": 8192,\n    \"rope_type\": \"llama3\"\n  },\n  \"rope_theta\": 500000.0,\n  \"tie_word_embeddings\": true,\n  \"torch_dtype\": \"bfloat16\",\n  \"transformers_version\": \"4.46.1\",\n  \"use_cache\": true,\n  \"vocab_size\": 128256\n}\n\n"
+      },
+      {
+        "kind": "recovered_control",
+        "task": "llama3b__both_masked",
+        "summary": {
+          "status": "COMPLETE",
+          "model": "llama3b",
+          "mode": "both_masked",
+          "steps": 1000,
+          "training_performed": false,
+          "original_rejected_diagnostic": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/llama3b__both_masked",
+          "baseline_replay": [
+            {
+              "source_index": 42,
+              "generated_ids_exact": true
+            },
+            {
+              "source_index": 171,
+              "generated_ids_exact": true
+            }
+          ],
+          "schedule_proof": {
+            "per_visit_learning_rates_exact": false,
+            "max_absolute_lr_difference": 1.0000000000000243e-07,
+            "mismatched_visits": 982,
+            "baseline_optimizer": {
+              "successful_optimizer_steps": 999,
+              "skipped_optimizer_steps": 1,
+              "adapter_parameters_finite": true,
+              "optimizer_state_finite": true
+            },
+            "control_actual_schedule": {
+              "successful_optimizer_steps": 999,
+              "skipped_optimizer_steps": 1,
+              "skipped_visits": [
+                994
+              ],
+              "same_schedule_definition_verified": true,
+              "recorded_trace_explained": true
+            },
+            "interpretation": "Loss masks also change gradient/clipping/AMP behavior; semantic effects are not isolated from these effects."
+          },
+          "next_token_hash_count": 0,
+          "next_token_stop_argmax_count": 0,
+          "probe_n": 100,
+          "answer_n": 8,
+          "answer_empty": 0,
+          "answer_title_only": 0,
+          "answer_repetition": 0,
+          "small_set_mean_score": 0.37724316447790385,
+          "not_a_full_score": true,
+          "original_failure_record_preserved": true,
+          "seconds": 181.88288383185863
+        }
+      },
+      {
+        "kind": "recovered_control",
+        "task": "llama3b__role_masked",
+        "summary": {
+          "status": "COMPLETE",
+          "model": "llama3b",
+          "mode": "role_masked",
+          "steps": 1000,
+          "training_performed": false,
+          "original_rejected_diagnostic": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/llama3b__role_masked",
+          "baseline_replay": [
+            {
+              "source_index": 42,
+              "generated_ids_exact": true
+            },
+            {
+              "source_index": 171,
+              "generated_ids_exact": true
+            }
+          ],
+          "schedule_proof": {
+            "per_visit_learning_rates_exact": false,
+            "max_absolute_lr_difference": 1.0000000000000031e-07,
+            "mismatched_visits": 21,
+            "baseline_optimizer": {
+              "successful_optimizer_steps": 999,
+              "skipped_optimizer_steps": 1,
+              "adapter_parameters_finite": true,
+              "optimizer_state_finite": true
+            },
+            "control_actual_schedule": {
+              "successful_optimizer_steps": 999,
+              "skipped_optimizer_steps": 1,
+              "skipped_visits": [
+                33
+              ],
+              "same_schedule_definition_verified": true,
+              "recorded_trace_explained": true
+            },
+            "interpretation": "Loss masks also change gradient/clipping/AMP behavior; semantic effects are not isolated from these effects."
+          },
+          "next_token_hash_count": 0,
+          "next_token_stop_argmax_count": 0,
+          "probe_n": 100,
+          "answer_n": 8,
+          "answer_empty": 0,
+          "answer_title_only": 0,
+          "answer_repetition": 0,
+          "small_set_mean_score": 0.34801624026000993,
+          "not_a_full_score": true,
+          "original_failure_record_preserved": true,
+          "seconds": 157.51731097698212
+        }
+      },
+      {
+        "kind": "recovered_control",
+        "task": "qwen3b__both_masked",
+        "summary": {
+          "status": "COMPLETE",
+          "model": "qwen3b",
+          "mode": "both_masked",
+          "steps": 1000,
+          "training_performed": false,
+          "original_rejected_diagnostic": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__both_masked",
+          "baseline_replay": [
+            {
+              "source_index": 42,
+              "generated_ids_exact": true
+            },
+            {
+              "source_index": 171,
+              "generated_ids_exact": true
+            }
+          ],
+          "schedule_proof": {
+            "per_visit_learning_rates_exact": false,
+            "max_absolute_lr_difference": 4.000000000000001e-07,
+            "mismatched_visits": 999,
+            "baseline_optimizer": {
+              "successful_optimizer_steps": 996,
+              "skipped_optimizer_steps": 4,
+              "adapter_parameters_finite": true,
+              "optimizer_state_finite": true
+            },
+            "control_actual_schedule": {
+              "successful_optimizer_steps": 998,
+              "skipped_optimizer_steps": 2,
+              "skipped_visits": [
+                14,
+                968
+              ],
+              "same_schedule_definition_verified": true,
+              "recorded_trace_explained": true
+            },
+            "interpretation": "Loss masks also change gradient/clipping/AMP behavior; semantic effects are not isolated from these effects."
+          },
+          "next_token_hash_count": 0,
+          "next_token_stop_argmax_count": 0,
+          "probe_n": 100,
+          "answer_n": 8,
+          "answer_empty": 0,
+          "answer_title_only": 0,
+          "answer_repetition": 0,
+          "small_set_mean_score": 0.40755632252029755,
+          "not_a_full_score": true,
+          "original_failure_record_preserved": true,
+          "seconds": 185.5951367765665
+        }
+      },
+      {
+        "kind": "recovered_control",
+        "task": "qwen3b__role_masked",
+        "summary": {
+          "status": "COMPLETE",
+          "model": "qwen3b",
+          "mode": "role_masked",
+          "steps": 1000,
+          "training_performed": false,
+          "original_rejected_diagnostic": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__role_masked",
+          "baseline_replay": [
+            {
+              "source_index": 42,
+              "generated_ids_exact": true
+            },
+            {
+              "source_index": 171,
+              "generated_ids_exact": true
+            }
+          ],
+          "schedule_proof": {
+            "per_visit_learning_rates_exact": false,
+            "max_absolute_lr_difference": 1.0000000000000243e-07,
+            "mismatched_visits": 998,
+            "baseline_optimizer": {
+              "successful_optimizer_steps": 996,
+              "skipped_optimizer_steps": 4,
+              "adapter_parameters_finite": true,
+              "optimizer_state_finite": true
+            },
+            "control_actual_schedule": {
+              "successful_optimizer_steps": 997,
+              "skipped_optimizer_steps": 3,
+              "skipped_visits": [
+                1,
+                4,
+                12
+              ],
+              "same_schedule_definition_verified": true,
+              "recorded_trace_explained": true
+            },
+            "interpretation": "Loss masks also change gradient/clipping/AMP behavior; semantic effects are not isolated from these effects."
+          },
+          "next_token_hash_count": 0,
+          "next_token_stop_argmax_count": 0,
+          "probe_n": 100,
+          "answer_n": 8,
+          "answer_empty": 0,
+          "answer_title_only": 0,
+          "answer_repetition": 1,
+          "small_set_mean_score": 0.4045776870124171,
+          "not_a_full_score": true,
+          "original_failure_record_preserved": true,
+          "seconds": 254.93508964776993
+        }
+      },
+      {
+        "kind": "recovered_control",
+        "task": "qwen3b__wrapper_masked",
+        "summary": {
+          "status": "COMPLETE",
+          "model": "qwen3b",
+          "mode": "wrapper_masked",
+          "steps": 1000,
+          "training_performed": false,
+          "original_rejected_diagnostic": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__wrapper_masked",
+          "baseline_replay": [
+            {
+              "source_index": 42,
+              "generated_ids_exact": true
+            },
+            {
+              "source_index": 171,
+              "generated_ids_exact": true
+            }
+          ],
+          "schedule_proof": {
+            "per_visit_learning_rates_exact": false,
+            "max_absolute_lr_difference": 1.0000000000000021e-07,
+            "mismatched_visits": 11,
+            "baseline_optimizer": {
+              "successful_optimizer_steps": 996,
+              "skipped_optimizer_steps": 4,
+              "adapter_parameters_finite": true,
+              "optimizer_state_finite": true
+            },
+            "control_actual_schedule": {
+              "successful_optimizer_steps": 996,
+              "skipped_optimizer_steps": 4,
+              "skipped_visits": [
+                1,
+                2,
+                4,
+                23
+              ],
+              "same_schedule_definition_verified": true,
+              "recorded_trace_explained": true
+            },
+            "interpretation": "Loss masks also change gradient/clipping/AMP behavior; semantic effects are not isolated from these effects."
+          },
+          "next_token_hash_count": 0,
+          "next_token_stop_argmax_count": 0,
+          "probe_n": 100,
+          "answer_n": 8,
+          "answer_empty": 0,
+          "answer_title_only": 0,
+          "answer_repetition": 0,
+          "small_set_mean_score": 0.3056059542633113,
+          "not_a_full_score": true,
+          "original_failure_record_preserved": true,
+          "seconds": 255.9364548176527
+        }
       },
       {
         "kind": "recovery",
         "root": "/data/chuwenjing/results/tlm_template_eval_recovery/run_20261027_004343_f67018",
         "status": {
-          "status": "WAITING_FOR_MATRIX",
+          "status": "COMPLETE",
+          "jobs": [
+            {
+              "key": "llama3b__role_masked",
+              "model": "llama3b",
+              "mode": "role_masked",
+              "runtime": "/home/chuwenjing/TTA_LLM/TLM/local_repro/tlm_offline_b6da067b55f5",
+              "original": "/data/chuwenjing/results/tlm_offline_v6_ready/run_20261026_000443_2ca89d/formal/llama3b__dolly_5k",
+              "state": "COMPLETE",
+              "output": "/data/chuwenjing/results/tlm_template_eval_recovery/run_20261027_004343_f67018/llama3b__role_masked",
+              "gpu": 0,
+              "pid": 12397,
+              "log": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/llama3b__role_masked.log",
+              "exit_code": 1,
+              "failure": {
+                "type": "ValueError",
+                "error": "Original trajectory controls differ: {'sample_order_exact': True, 'max_base_ce_difference': 0.0, 'max_weight_difference': 0.0, 'learning_rates_exact': False}",
+                "seconds": 584.2415475398302
+              },
+              "failed_output": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/llama3b__role_masked",
+              "summary": {
+                "status": "COMPLETE",
+                "model": "llama3b",
+                "mode": "role_masked",
+                "steps": 1000,
+                "training_performed": false,
+                "original_rejected_diagnostic": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/llama3b__role_masked",
+                "baseline_replay": [
+                  {
+                    "source_index": 42,
+                    "generated_ids_exact": true
+                  },
+                  {
+                    "source_index": 171,
+                    "generated_ids_exact": true
+                  }
+                ],
+                "schedule_proof": {
+                  "per_visit_learning_rates_exact": false,
+                  "max_absolute_lr_difference": 1.0000000000000031e-07,
+                  "mismatched_visits": 21,
+                  "baseline_optimizer": {
+                    "successful_optimizer_steps": 999,
+                    "skipped_optimizer_steps": 1,
+                    "adapter_parameters_finite": true,
+                    "optimizer_state_finite": true
+                  },
+                  "control_actual_schedule": {
+                    "successful_optimizer_steps": 999,
+                    "skipped_optimizer_steps": 1,
+                    "skipped_visits": [
+                      33
+                    ],
+                    "same_schedule_definition_verified": true,
+                    "recorded_trace_explained": true
+                  },
+                  "interpretation": "Loss masks also change gradient/clipping/AMP behavior; semantic effects are not isolated from these effects."
+                },
+                "next_token_hash_count": 0,
+                "next_token_stop_argmax_count": 0,
+                "probe_n": 100,
+                "answer_n": 8,
+                "answer_empty": 0,
+                "answer_title_only": 0,
+                "answer_repetition": 0,
+                "small_set_mean_score": 0.34801624026000993,
+                "not_a_full_score": true,
+                "original_failure_record_preserved": true,
+                "seconds": 157.51731097698212
+              }
+            },
+            {
+              "key": "llama3b__both_masked",
+              "model": "llama3b",
+              "mode": "both_masked",
+              "runtime": "/home/chuwenjing/TTA_LLM/TLM/local_repro/tlm_offline_b6da067b55f5",
+              "original": "/data/chuwenjing/results/tlm_offline_v6_ready/run_20261026_000443_2ca89d/formal/llama3b__dolly_5k",
+              "state": "COMPLETE",
+              "output": "/data/chuwenjing/results/tlm_template_eval_recovery/run_20261027_004343_f67018/llama3b__both_masked",
+              "gpu": 4,
+              "pid": 12398,
+              "log": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/llama3b__both_masked.log",
+              "exit_code": 1,
+              "failure": {
+                "type": "ValueError",
+                "error": "Original trajectory controls differ: {'sample_order_exact': True, 'max_base_ce_difference': 0.0, 'max_weight_difference': 0.0, 'learning_rates_exact': False}",
+                "seconds": 592.1281419545412
+              },
+              "failed_output": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/llama3b__both_masked",
+              "summary": {
+                "status": "COMPLETE",
+                "model": "llama3b",
+                "mode": "both_masked",
+                "steps": 1000,
+                "training_performed": false,
+                "original_rejected_diagnostic": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/llama3b__both_masked",
+                "baseline_replay": [
+                  {
+                    "source_index": 42,
+                    "generated_ids_exact": true
+                  },
+                  {
+                    "source_index": 171,
+                    "generated_ids_exact": true
+                  }
+                ],
+                "schedule_proof": {
+                  "per_visit_learning_rates_exact": false,
+                  "max_absolute_lr_difference": 1.0000000000000243e-07,
+                  "mismatched_visits": 982,
+                  "baseline_optimizer": {
+                    "successful_optimizer_steps": 999,
+                    "skipped_optimizer_steps": 1,
+                    "adapter_parameters_finite": true,
+                    "optimizer_state_finite": true
+                  },
+                  "control_actual_schedule": {
+                    "successful_optimizer_steps": 999,
+                    "skipped_optimizer_steps": 1,
+                    "skipped_visits": [
+                      994
+                    ],
+                    "same_schedule_definition_verified": true,
+                    "recorded_trace_explained": true
+                  },
+                  "interpretation": "Loss masks also change gradient/clipping/AMP behavior; semantic effects are not isolated from these effects."
+                },
+                "next_token_hash_count": 0,
+                "next_token_stop_argmax_count": 0,
+                "probe_n": 100,
+                "answer_n": 8,
+                "answer_empty": 0,
+                "answer_title_only": 0,
+                "answer_repetition": 0,
+                "small_set_mean_score": 0.37724316447790385,
+                "not_a_full_score": true,
+                "original_failure_record_preserved": true,
+                "seconds": 181.88288383185863
+              }
+            },
+            {
+              "key": "qwen3b__role_masked",
+              "model": "qwen3b",
+              "mode": "role_masked",
+              "runtime": "/home/chuwenjing/TTA_LLM/TLM/local_repro/tlm_offline_b6da067b55f5",
+              "original": "/data/chuwenjing/results/tlm_qwen_dolly_recovery_v6/run_20261026_014911_83ebf2/formal/qwen3b__dolly_5k",
+              "state": "COMPLETE",
+              "output": "/data/chuwenjing/results/tlm_template_eval_recovery/run_20261027_004343_f67018/qwen3b__role_masked",
+              "gpu": 7,
+              "pid": 12399,
+              "log": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__role_masked.log",
+              "exit_code": 1,
+              "failure": {
+                "type": "ValueError",
+                "error": "Original trajectory controls differ: {'sample_order_exact': True, 'max_base_ce_difference': 0.0, 'max_weight_difference': 0.0, 'learning_rates_exact': False}",
+                "seconds": 806.6496096104383
+              },
+              "failed_output": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__role_masked",
+              "summary": {
+                "status": "COMPLETE",
+                "model": "qwen3b",
+                "mode": "role_masked",
+                "steps": 1000,
+                "training_performed": false,
+                "original_rejected_diagnostic": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__role_masked",
+                "baseline_replay": [
+                  {
+                    "source_index": 42,
+                    "generated_ids_exact": true
+                  },
+                  {
+                    "source_index": 171,
+                    "generated_ids_exact": true
+                  }
+                ],
+                "schedule_proof": {
+                  "per_visit_learning_rates_exact": false,
+                  "max_absolute_lr_difference": 1.0000000000000243e-07,
+                  "mismatched_visits": 998,
+                  "baseline_optimizer": {
+                    "successful_optimizer_steps": 996,
+                    "skipped_optimizer_steps": 4,
+                    "adapter_parameters_finite": true,
+                    "optimizer_state_finite": true
+                  },
+                  "control_actual_schedule": {
+                    "successful_optimizer_steps": 997,
+                    "skipped_optimizer_steps": 3,
+                    "skipped_visits": [
+                      1,
+                      4,
+                      12
+                    ],
+                    "same_schedule_definition_verified": true,
+                    "recorded_trace_explained": true
+                  },
+                  "interpretation": "Loss masks also change gradient/clipping/AMP behavior; semantic effects are not isolated from these effects."
+                },
+                "next_token_hash_count": 0,
+                "next_token_stop_argmax_count": 0,
+                "probe_n": 100,
+                "answer_n": 8,
+                "answer_empty": 0,
+                "answer_title_only": 0,
+                "answer_repetition": 1,
+                "small_set_mean_score": 0.4045776870124171,
+                "not_a_full_score": true,
+                "original_failure_record_preserved": true,
+                "seconds": 254.93508964776993
+              }
+            },
+            {
+              "key": "qwen3b__wrapper_masked",
+              "model": "qwen3b",
+              "mode": "wrapper_masked",
+              "runtime": "/home/chuwenjing/TTA_LLM/TLM/local_repro/tlm_offline_b6da067b55f5",
+              "original": "/data/chuwenjing/results/tlm_qwen_dolly_recovery_v6/run_20261026_014911_83ebf2/formal/qwen3b__dolly_5k",
+              "state": "COMPLETE",
+              "output": "/data/chuwenjing/results/tlm_template_eval_recovery/run_20261027_004343_f67018/qwen3b__wrapper_masked",
+              "gpu": 0,
+              "pid": 13158,
+              "log": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__wrapper_masked.log",
+              "exit_code": 1,
+              "failure": {
+                "type": "ValueError",
+                "error": "Original trajectory controls differ: {'sample_order_exact': True, 'max_base_ce_difference': 0.0, 'max_weight_difference': 0.0, 'learning_rates_exact': False}",
+                "seconds": 833.8230414539576
+              },
+              "failed_output": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__wrapper_masked",
+              "summary": {
+                "status": "COMPLETE",
+                "model": "qwen3b",
+                "mode": "wrapper_masked",
+                "steps": 1000,
+                "training_performed": false,
+                "original_rejected_diagnostic": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__wrapper_masked",
+                "baseline_replay": [
+                  {
+                    "source_index": 42,
+                    "generated_ids_exact": true
+                  },
+                  {
+                    "source_index": 171,
+                    "generated_ids_exact": true
+                  }
+                ],
+                "schedule_proof": {
+                  "per_visit_learning_rates_exact": false,
+                  "max_absolute_lr_difference": 1.0000000000000021e-07,
+                  "mismatched_visits": 11,
+                  "baseline_optimizer": {
+                    "successful_optimizer_steps": 996,
+                    "skipped_optimizer_steps": 4,
+                    "adapter_parameters_finite": true,
+                    "optimizer_state_finite": true
+                  },
+                  "control_actual_schedule": {
+                    "successful_optimizer_steps": 996,
+                    "skipped_optimizer_steps": 4,
+                    "skipped_visits": [
+                      1,
+                      2,
+                      4,
+                      23
+                    ],
+                    "same_schedule_definition_verified": true,
+                    "recorded_trace_explained": true
+                  },
+                  "interpretation": "Loss masks also change gradient/clipping/AMP behavior; semantic effects are not isolated from these effects."
+                },
+                "next_token_hash_count": 0,
+                "next_token_stop_argmax_count": 0,
+                "probe_n": 100,
+                "answer_n": 8,
+                "answer_empty": 0,
+                "answer_title_only": 0,
+                "answer_repetition": 0,
+                "small_set_mean_score": 0.3056059542633113,
+                "not_a_full_score": true,
+                "original_failure_record_preserved": true,
+                "seconds": 255.9364548176527
+              }
+            },
+            {
+              "key": "qwen3b__both_masked",
+              "model": "qwen3b",
+              "mode": "both_masked",
+              "runtime": "/home/chuwenjing/TTA_LLM/TLM/local_repro/tlm_offline_b6da067b55f5",
+              "original": "/data/chuwenjing/results/tlm_qwen_dolly_recovery_v6/run_20261026_014911_83ebf2/formal/qwen3b__dolly_5k",
+              "state": "COMPLETE",
+              "output": "/data/chuwenjing/results/tlm_template_eval_recovery/run_20261027_004343_f67018/qwen3b__both_masked",
+              "gpu": 4,
+              "pid": 13280,
+              "log": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__both_masked.log",
+              "exit_code": 1,
+              "failure": {
+                "type": "ValueError",
+                "error": "Original trajectory controls differ: {'sample_order_exact': True, 'max_base_ce_difference': 0.0, 'max_weight_difference': 0.0, 'learning_rates_exact': False}",
+                "seconds": 810.4146007150412
+              },
+              "failed_output": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__both_masked",
+              "summary": {
+                "status": "COMPLETE",
+                "model": "qwen3b",
+                "mode": "both_masked",
+                "steps": 1000,
+                "training_performed": false,
+                "original_rejected_diagnostic": "/data/chuwenjing/results/tlm_template_matrix/run_20261026_160452_836775/qwen3b__both_masked",
+                "baseline_replay": [
+                  {
+                    "source_index": 42,
+                    "generated_ids_exact": true
+                  },
+                  {
+                    "source_index": 171,
+                    "generated_ids_exact": true
+                  }
+                ],
+                "schedule_proof": {
+                  "per_visit_learning_rates_exact": false,
+                  "max_absolute_lr_difference": 4.000000000000001e-07,
+                  "mismatched_visits": 999,
+                  "baseline_optimizer": {
+                    "successful_optimizer_steps": 996,
+                    "skipped_optimizer_steps": 4,
+                    "adapter_parameters_finite": true,
+                    "optimizer_state_finite": true
+                  },
+                  "control_actual_schedule": {
+                    "successful_optimizer_steps": 998,
+                    "skipped_optimizer_steps": 2,
+                    "skipped_visits": [
+                      14,
+                      968
+                    ],
+                    "same_schedule_definition_verified": true,
+                    "recorded_trace_explained": true
+                  },
+                  "interpretation": "Loss masks also change gradient/clipping/AMP behavior; semantic effects are not isolated from these effects."
+                },
+                "next_token_hash_count": 0,
+                "next_token_stop_argmax_count": 0,
+                "probe_n": 100,
+                "answer_n": 8,
+                "answer_empty": 0,
+                "answer_title_only": 0,
+                "answer_repetition": 0,
+                "small_set_mean_score": 0.40755632252029755,
+                "not_a_full_score": true,
+                "original_failure_record_preserved": true,
+                "seconds": 185.5951367765665
+              }
+            }
+          ],
+          "excluded_failures": [],
           "training_performed": false,
-          "time": 1793061904.2428012
+          "source_matrix_modified": false,
+          "time": 1793062525.4782546
+        }
+      },
+      {
+        "kind": "gsm_failure_replay",
+        "mode": "original_step2500",
+        "root": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/original_step2500",
+        "selection.json": {
+          "indices": [
+            274,
+            762,
+            876,
+            1174,
+            1288,
+            1363,
+            1443,
+            1814,
+            1924,
+            2116,
+            2126,
+            3665,
+            4233,
+            4262,
+            4461,
+            4509
+          ],
+          "selection_seed": 314159,
+          "population_n": 350,
+          "selection_basis": "previously observed original step5000 reasoning-stub-only failures; no gold consulted",
+          "not_an_unbiased_accuracy_sample": true
+        },
+        "status.json": {
+          "status": "COMPLETE",
+          "mode": "original_step2500"
+        },
+        "original_failure_replay.json": {
+          "generated_ids_and_text_exact": true,
+          "indices": [
+            274,
+            762,
+            876,
+            1174,
+            1288,
+            1363,
+            1443,
+            1814,
+            1924,
+            2116,
+            2126,
+            3665,
+            4233,
+            4262,
+            4461,
+            4509
+          ]
+        },
+        "summary.json": {
+          "status": "COMPLETE",
+          "mode": "original_step2500",
+          "n": 16,
+          "stub_only": 5,
+          "empty": 0,
+          "correct": 8.0,
+          "source_correct": 13.0,
+          "hit_limit": 0,
+          "original_step5000_stub_only": 16,
+          "exact_original_failure_replay": true,
+          "adapter_sha256": "3d0fc755e80442d9bce47647eee0fe1c3646784dac499ef88f98f93586b84162",
+          "training_performed": false,
+          "optimizer_created": false,
+          "not_an_unbiased_accuracy_sample": true,
+          "original_runs_modified": false,
+          "seconds": 251.11808896064758
+        },
+        "answers_completed": 16,
+        "partial_actual_counts": {
+          "stub_only": 5,
+          "correct": 8.0
+        }
+      },
+      {
+        "kind": "gsm_failure_replay",
+        "mode": "hint_masked",
+        "root": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/hint_masked",
+        "selection.json": {
+          "indices": [
+            274,
+            762,
+            876,
+            1174,
+            1288,
+            1363,
+            1443,
+            1814,
+            1924,
+            2116,
+            2126,
+            3665,
+            4233,
+            4262,
+            4461,
+            4509
+          ],
+          "selection_seed": 314159,
+          "population_n": 350,
+          "selection_basis": "previously observed original step5000 reasoning-stub-only failures; no gold consulted",
+          "not_an_unbiased_accuracy_sample": true
+        },
+        "status.json": {
+          "status": "COMPLETE",
+          "mode": "hint_masked"
+        },
+        "original_failure_replay.json": {
+          "generated_ids_and_text_exact": true,
+          "indices": [
+            274,
+            762,
+            876,
+            1174,
+            1288,
+            1363,
+            1443,
+            1814,
+            1924,
+            2116,
+            2126,
+            3665,
+            4233,
+            4262,
+            4461,
+            4509
+          ]
+        },
+        "summary.json": {
+          "status": "COMPLETE",
+          "mode": "hint_masked",
+          "n": 16,
+          "stub_only": 0,
+          "empty": 0,
+          "correct": 14.0,
+          "source_correct": 13.0,
+          "hit_limit": 0,
+          "original_step5000_stub_only": 16,
+          "exact_original_failure_replay": true,
+          "adapter_sha256": "fc87c4353f0f076c22f3eb1c2d8ab9d02c6b2ba128a861599cb539064c93c304",
+          "training_performed": false,
+          "optimizer_created": false,
+          "not_an_unbiased_accuracy_sample": true,
+          "original_runs_modified": false,
+          "seconds": 305.0878675431013
+        },
+        "answers_completed": 16,
+        "partial_actual_counts": {
+          "stub_only": 0,
+          "correct": 14.0
+        }
+      },
+      {
+        "kind": "gsm_failure_replay",
+        "mode": "eot_masked",
+        "root": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/eot_masked",
+        "selection.json": {
+          "indices": [
+            274,
+            762,
+            876,
+            1174,
+            1288,
+            1363,
+            1443,
+            1814,
+            1924,
+            2116,
+            2126,
+            3665,
+            4233,
+            4262,
+            4461,
+            4509
+          ],
+          "selection_seed": 314159,
+          "population_n": 350,
+          "selection_basis": "previously observed original step5000 reasoning-stub-only failures; no gold consulted",
+          "not_an_unbiased_accuracy_sample": true
+        },
+        "status.json": {
+          "status": "COMPLETE",
+          "mode": "eot_masked"
+        },
+        "original_failure_replay.json": {
+          "generated_ids_and_text_exact": true,
+          "indices": [
+            274,
+            762,
+            876,
+            1174,
+            1288,
+            1363,
+            1443,
+            1814,
+            1924,
+            2116,
+            2126,
+            3665,
+            4233,
+            4262,
+            4461,
+            4509
+          ]
+        },
+        "summary.json": {
+          "status": "COMPLETE",
+          "mode": "eot_masked",
+          "n": 16,
+          "stub_only": 0,
+          "empty": 0,
+          "correct": 13.0,
+          "source_correct": 13.0,
+          "hit_limit": 0,
+          "original_step5000_stub_only": 16,
+          "exact_original_failure_replay": true,
+          "adapter_sha256": "8810d26ca78766be2594253aa375fab2902d353acda7eebdd21f01fd9a0986ae",
+          "training_performed": false,
+          "optimizer_created": false,
+          "not_an_unbiased_accuracy_sample": true,
+          "original_runs_modified": false,
+          "seconds": 292.36903665959835
+        },
+        "answers_completed": 16,
+        "partial_actual_counts": {
+          "stub_only": 0,
+          "correct": 13.0
+        }
+      },
+      {
+        "kind": "gsm_failure_replay",
+        "mode": "both_masked",
+        "root": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/both_masked",
+        "selection.json": {
+          "indices": [
+            274,
+            762,
+            876,
+            1174,
+            1288,
+            1363,
+            1443,
+            1814,
+            1924,
+            2116,
+            2126,
+            3665,
+            4233,
+            4262,
+            4461,
+            4509
+          ],
+          "selection_seed": 314159,
+          "population_n": 350,
+          "selection_basis": "previously observed original step5000 reasoning-stub-only failures; no gold consulted",
+          "not_an_unbiased_accuracy_sample": true
+        },
+        "status.json": {
+          "status": "COMPLETE",
+          "mode": "both_masked"
+        },
+        "original_failure_replay.json": {
+          "generated_ids_and_text_exact": true,
+          "indices": [
+            274,
+            762,
+            876,
+            1174,
+            1288,
+            1363,
+            1443,
+            1814,
+            1924,
+            2116,
+            2126,
+            3665,
+            4233,
+            4262,
+            4461,
+            4509
+          ]
+        },
+        "summary.json": {
+          "status": "COMPLETE",
+          "mode": "both_masked",
+          "n": 16,
+          "stub_only": 0,
+          "empty": 0,
+          "correct": 14.0,
+          "source_correct": 13.0,
+          "hit_limit": 0,
+          "original_step5000_stub_only": 16,
+          "exact_original_failure_replay": true,
+          "adapter_sha256": "71806639825909a49e53e2591898fca1e7270dc4c02cbe3d2dd4c187f5ed8e24",
+          "training_performed": false,
+          "optimizer_created": false,
+          "not_an_unbiased_accuracy_sample": true,
+          "original_runs_modified": false,
+          "seconds": 302.1424364000559
+        },
+        "answers_completed": 16,
+        "partial_actual_counts": {
+          "stub_only": 0,
+          "correct": 14.0
         }
       }
     ],
     "exit_status": 0
+  },
+  "gsm_baseline_parity": {
+    "kind": "gsm_baseline_parity",
+    "three_probe_files_exact": true,
+    "three_answer_files_exact": true,
+    "milestone100_probes_exact": true,
+    "milestone4_generated_ids_and_text_exact": true
   },
   "gsm_audit": {
     "checks": [
@@ -1988,6 +3202,58 @@
         }
       ],
       "server_tests": "5 PASS",
+      "original_runs_modified": false
+    },
+    "tlm-gsm-failure-replay-deployment.json": {
+      "root": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3",
+      "remote": "/data/chuwenjing/tta_offline/tlm_gsm_failure_replay_6c375e2ad1e1",
+      "hashes": {
+        "cases.py": "0c0616e2c840eb31d52f4547f3c571dc457cf1b12f039f56004ae6f9d042f375",
+        "README.md": "bd78b4fed45cad6a3145cd55767384643005eeb21a0feb3c2102a61afb663582",
+        "replay.py": "78c7a328bbb5feba085875298812722ec65522a6cdcb1ddac9ea5621a304b823",
+        "tests/test_cases.py": "ea5b152704a6d8dc66bcb8adec275a64035668dd6f7d5278939fd8597381a906",
+        "SHA256SUMS": "036da6ac6203ee9a43bf2b7fac67b79921fc4bf44247591541e8a715c2f7f9a2"
+      },
+      "jobs": [
+        {
+          "gpu": 0,
+          "mode": "original_step2500",
+          "pid": 15243,
+          "adapter_sha256": "3d0fc755e80442d9bce47647eee0fe1c3646784dac499ef88f98f93586b84162",
+          "output": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/original_step2500",
+          "log": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/original_step2500.log"
+        },
+        {
+          "gpu": 1,
+          "mode": "hint_masked",
+          "pid": 15251,
+          "adapter_sha256": "fc87c4353f0f076c22f3eb1c2d8ab9d02c6b2ba128a861599cb539064c93c304",
+          "output": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/hint_masked",
+          "log": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/hint_masked.log"
+        },
+        {
+          "gpu": 2,
+          "mode": "eot_masked",
+          "pid": 15258,
+          "adapter_sha256": "8810d26ca78766be2594253aa375fab2902d353acda7eebdd21f01fd9a0986ae",
+          "output": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/eot_masked",
+          "log": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/eot_masked.log"
+        },
+        {
+          "gpu": 3,
+          "mode": "both_masked",
+          "pid": 15265,
+          "adapter_sha256": "71806639825909a49e53e2591898fca1e7270dc4c02cbe3d2dd4c187f5ed8e24",
+          "output": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/both_masked",
+          "log": "/data/chuwenjing/results/tlm_gsm_failure_replay/run_20261027_074127_85f7d3/both_masked.log"
+        }
+      ],
+      "server_tests": "3 PASS",
+      "original": "/data/chuwenjing/results/tlm_offline_v6_ready/run_20261026_000443_2ca89d/formal/llama3b__gsm8k_5k",
+      "runtime": "/home/chuwenjing/TTA_LLM/TLM/local_repro/tlm_offline_b6da067b55f5",
+      "control_root": "/data/chuwenjing/results/tlm_gsm_transition_controls/run_20261027_003255_5dcc17",
+      "started_at": 1793086887.5253248,
+      "training_performed": false,
       "original_runs_modified": false
     }
   }
