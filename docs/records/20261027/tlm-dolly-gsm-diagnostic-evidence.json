@@ -1,10 +1,10 @@
 {
-  "time_beijing": "2026-10-27 15:47",
+  "time_beijing": "2026-10-27 20:54",
   "main_evaluation_snapshot": {
     "read_only": true,
     "checks": [
       {
-        "time_utc": "2026-10-27T07:48:22.825487+00:00",
+        "time_utc": "2026-10-27T12:54:59.707762+00:00",
         "cohort_root": "/data/chuwenjing/results/tlm_eval_complete_v6/run_20261026_052804_45ad81",
         "supervisor_status": {
           "status": "RUNNING",
@@ -166,22 +166,22 @@
               "gpu": 6,
               "run": "/data/chuwenjing/results/tlm_qwen_dolly_recovery_v6/run_20261026_014911_83ebf2/formal/qwen3b__dolly_5k",
               "runtime": "/home/chuwenjing/TTA_LLM/TLM/local_repro/tlm_offline_b6da067b55f5",
-              "status": "ACTIVE",
+              "status": "COMPLETE",
               "continuation": {
                 "pid": 35238,
                 "log": "/data/chuwenjing/results/tlm_eval_complete_v6/run_20261026_052804_45ad81/qwen3b__dolly_5k.log"
               },
-              "existing_pid": 35238,
-              "predictions_complete": 4969,
+              "existing_pid": null,
+              "predictions_complete": 5000,
               "original_failure": null,
               "continuation_failure": null,
               "quality_latest": {
                 "status": "ALERT",
-                "window_start": 4800,
+                "window_start": 4900,
                 "n": 100,
                 "tlm": {
-                  "empty": 17,
-                  "repetition": 3
+                  "empty": 10,
+                  "repetition": 8
                 },
                 "source": {
                   "empty": 0,
@@ -189,12 +189,13 @@
                 },
                 "excess_rate_threshold": 0.05,
                 "alerts": [
-                  "empty"
+                  "empty",
+                  "repetition"
                 ],
                 "dominant_answer": {
                   "tlm_count": 1,
                   "source_count": 0,
-                  "text": "#### response: surfing in california has its roots in the early 20th century, with the introduction of the sport by henry e. huntington, a land baron who was interested in attracti",
+                  "text": "input: #### response: anandapuram mandal is a mandal in the visakhapatnam district of the indian state of andhra pradesh. it is under the administration of visakhapatnam revenue di",
                   "share_threshold": 0.5,
                   "excess_rate_threshold": 0.1
                 }
@@ -210,12 +211,12 @@
               "status": "ACTIVE",
               "continuation": null,
               "existing_pid": 32227,
-              "predictions_complete": 3995,
+              "predictions_complete": 4667,
               "original_failure": null,
               "continuation_failure": null,
               "quality_latest": {
                 "status": "PASS",
-                "window_start": 3800,
+                "window_start": 4500,
                 "n": 100,
                 "tlm": {
                   "empty": 0,
@@ -230,7 +231,7 @@
                 "dominant_answer": {
                   "tlm_count": 1,
                   "source_count": 0,
-                  "text": "sure, let's solve this step by step. 1. **identify the number of yellow highlighters:** - carrie has 7 yellow highlighters. 2. **determine the number of pink highlighters:** - ther",
+                  "text": "sure, let's solve this step by step. 1. **determine how much money ben has:** - we know that jack has $26. - ben has $9 less than jack. - therefore, ben has \\( 26 - 9 = 17 \\) dolla",
                   "share_threshold": 0.5,
                   "excess_rate_threshold": 0.1
                 }
@@ -241,7 +242,7 @@
           "quality_policy": "record_and_continue",
           "training_performed": false,
           "completion_does_not_imply_quality_pass": true,
-          "time": 1793087295.7001126
+          "time": 1793105695.212849
         }
       },
       {
@@ -577,8 +578,8 @@
         "dataset": "dolly_5k",
         "run": "/data/chuwenjing/results/tlm_qwen_dolly_recovery_v6/run_20261026_014911_83ebf2/formal/qwen3b__dolly_5k",
         "run_manifest.json": {
-          "status": "RUNNING",
-          "stage": "evaluation",
+          "status": "PASS",
+          "stage": "complete",
           "config": {
             "code_id": "b6da067b55f5c65241ae6fbd8c706b88523f64b27dd9568ad5661255b89d7999",
             "model": "qwen3b",
@@ -593,8 +594,18 @@
             "source_run": "/data/chuwenjing/results/tent_formal_v3_6gpu/run_20261020_001210_900089",
             "preflight_sha256": "021ceb35178ceb1d0c1f5bec5f17286e4c39e7be1f78e71c96f75ed537ca8689"
           },
+          "metrics": {
+            "n": 5000,
+            "metric": "rougeLsum",
+            "value_0_to_1": 0.2568545232014724,
+            "generated_tokens": 925005,
+            "hit_generation_limit_rate": 0.111,
+            "unique_answers": 4445,
+            "predictions_sha256": "1eefda0e82960a6452441e8d6a53bf3bcec01231ed69cc3c4d3461cb2dbf6e93"
+          },
           "evaluation_policy": "record_quality_alerts_continue",
-          "resume_audit": "/data/chuwenjing/results/tlm_qwen_dolly_recovery_v6/run_20261026_014911_83ebf2/formal/qwen3b__dolly_5k/evaluation_resume_20261026_053016"
+          "quality_alert_windows": 50,
+          "quality_healthy": false
         },
         "evaluation_policy.json": {
           "quality_alerts": "record_and_continue",
@@ -605,11 +616,11 @@
         },
         "quality_latest.json": {
           "status": "ALERT",
-          "window_start": 4800,
+          "window_start": 4900,
           "n": 100,
           "tlm": {
-            "empty": 17,
-            "repetition": 3
+            "empty": 10,
+            "repetition": 8
           },
           "source": {
             "empty": 0,
@@ -617,17 +628,27 @@
           },
           "excess_rate_threshold": 0.05,
           "alerts": [
-            "empty"
+            "empty",
+            "repetition"
           ],
           "dominant_answer": {
             "tlm_count": 1,
             "source_count": 0,
-            "text": "#### response: surfing in california has its roots in the early 20th century, with the introduction of the sport by henry e. huntington, a land baron who was interested in attracti",
+            "text": "input: #### response: anandapuram mandal is a mandal in the visakhapatnam district of the indian state of andhra pradesh. it is under the administration of visakhapatnam revenue di",
             "share_threshold": 0.5,
             "excess_rate_threshold": 0.1
           }
         },
-        "prediction_count": 4969,
+        "metrics.json": {
+          "n": 5000,
+          "metric": "rougeLsum",
+          "value_0_to_1": 0.2568545232014724,
+          "generated_tokens": 925005,
+          "hit_generation_limit_rate": 0.111,
+          "unique_answers": 4445,
+          "predictions_sha256": "1eefda0e82960a6452441e8d6a53bf3bcec01231ed69cc3c4d3461cb2dbf6e93"
+        },
+        "prediction_count": 5000,
         "resume_verification": {
           "code_id": "b6da067b55f5c65241ae6fbd8c706b88523f64b27dd9568ad5661255b89d7999",
           "evaluation_driver_sha256": "bb8abbebd9d32428122f4667efd061b580340cd0e0c44ac4abbb4994a3cd64cf",
@@ -652,7 +673,7 @@
             false
           ]
         },
-        "continuation_log_tail": "\", \"completed\": 4400, \"total\": 5000, \"seconds\": 83730.90953345597}\n{\"phase\": \"evaluation\", \"completed\": 4425, \"total\": 5000, \"seconds\": 84235.21906249225}\n{\"phase\": \"evaluation\", \"completed\": 4450, \"total\": 5000, \"seconds\": 84602.50609572232}\n{\"phase\": \"evaluation\", \"completed\": 4475, \"total\": 5000, \"seconds\": 85153.62099602818}\n{\"phase\": \"evaluation\", \"completed\": 4500, \"total\": 5000, \"seconds\": 85720.94128453732}\n{\"phase\": \"evaluation\", \"completed\": 4525, \"total\": 5000, \"seconds\": 86285.51948316395}\n{\"phase\": \"evaluation\", \"completed\": 4550, \"total\": 5000, \"seconds\": 86713.94054825604}\n{\"phase\": \"evaluation\", \"completed\": 4575, \"total\": 5000, \"seconds\": 87198.92124380171}\n{\"phase\": \"evaluation\", \"completed\": 4600, \"total\": 5000, \"seconds\": 87578.3243021518}\n{\"phase\": \"evaluation\", \"completed\": 4625, \"total\": 5000, \"seconds\": 88108.55691701174}\n{\"phase\": \"evaluation\", \"completed\": 4650, \"total\": 5000, \"seconds\": 88629.46616372466}\n{\"phase\": \"evaluation\", \"completed\": 4675, \"total\": 5000, \"seconds\": 89161.34891940653}\n{\"phase\": \"evaluation\", \"completed\": 4700, \"total\": 5000, \"seconds\": 89661.92861485481}\n{\"phase\": \"evaluation\", \"completed\": 4725, \"total\": 5000, \"seconds\": 90437.61179940403}\n{\"phase\": \"evaluation\", \"completed\": 4750, \"total\": 5000, \"seconds\": 90877.31459337473}\n{\"phase\": \"evaluation\", \"completed\": 4775, \"total\": 5000, \"seconds\": 91387.9001763612}\n{\"phase\": \"evaluation\", \"completed\": 4800, \"total\": 5000, \"seconds\": 91755.22971180081}\n{\"phase\": \"evaluation\", \"completed\": 4825, \"total\": 5000, \"seconds\": 92142.60670502484}\n{\"phase\": \"evaluation\", \"completed\": 4850, \"total\": 5000, \"seconds\": 92510.21080717444}\n{\"phase\": \"evaluation\", \"completed\": 4875, \"total\": 5000, \"seconds\": 92972.9100793302}\n{\"phase\": \"evaluation\", \"completed\": 4900, \"total\": 5000, \"seconds\": 93420.88881798089}\n{\"phase\": \"evaluation\", \"completed\": 4925, \"total\": 5000, \"seconds\": 93889.62088315189}\n{\"phase\": \"evaluation\", \"completed\": 4950, \"total\": 5000, \"seconds\": 94270.30608557165}\n"
+        "continuation_log_tail": "\", \"completed\": 4450, \"total\": 5000, \"seconds\": 84602.50609572232}\n{\"phase\": \"evaluation\", \"completed\": 4475, \"total\": 5000, \"seconds\": 85153.62099602818}\n{\"phase\": \"evaluation\", \"completed\": 4500, \"total\": 5000, \"seconds\": 85720.94128453732}\n{\"phase\": \"evaluation\", \"completed\": 4525, \"total\": 5000, \"seconds\": 86285.51948316395}\n{\"phase\": \"evaluation\", \"completed\": 4550, \"total\": 5000, \"seconds\": 86713.94054825604}\n{\"phase\": \"evaluation\", \"completed\": 4575, \"total\": 5000, \"seconds\": 87198.92124380171}\n{\"phase\": \"evaluation\", \"completed\": 4600, \"total\": 5000, \"seconds\": 87578.3243021518}\n{\"phase\": \"evaluation\", \"completed\": 4625, \"total\": 5000, \"seconds\": 88108.55691701174}\n{\"phase\": \"evaluation\", \"completed\": 4650, \"total\": 5000, \"seconds\": 88629.46616372466}\n{\"phase\": \"evaluation\", \"completed\": 4675, \"total\": 5000, \"seconds\": 89161.34891940653}\n{\"phase\": \"evaluation\", \"completed\": 4700, \"total\": 5000, \"seconds\": 89661.92861485481}\n{\"phase\": \"evaluation\", \"completed\": 4725, \"total\": 5000, \"seconds\": 90437.61179940403}\n{\"phase\": \"evaluation\", \"completed\": 4750, \"total\": 5000, \"seconds\": 90877.31459337473}\n{\"phase\": \"evaluation\", \"completed\": 4775, \"total\": 5000, \"seconds\": 91387.9001763612}\n{\"phase\": \"evaluation\", \"completed\": 4800, \"total\": 5000, \"seconds\": 91755.22971180081}\n{\"phase\": \"evaluation\", \"completed\": 4825, \"total\": 5000, \"seconds\": 92142.60670502484}\n{\"phase\": \"evaluation\", \"completed\": 4850, \"total\": 5000, \"seconds\": 92510.21080717444}\n{\"phase\": \"evaluation\", \"completed\": 4875, \"total\": 5000, \"seconds\": 92972.9100793302}\n{\"phase\": \"evaluation\", \"completed\": 4900, \"total\": 5000, \"seconds\": 93420.88881798089}\n{\"phase\": \"evaluation\", \"completed\": 4925, \"total\": 5000, \"seconds\": 93889.62088315189}\n{\"phase\": \"evaluation\", \"completed\": 4950, \"total\": 5000, \"seconds\": 94270.30608557165}\n{\"phase\": \"evaluation\", \"completed\": 4975, \"total\": 5000, \"seconds\": 94753.98082774878}\n{\"phase\": \"evaluation\", \"completed\": 5000, \"total\": 5000, \"seconds\": 95161.53803832829}\n"
       },
       {
         "model": "qwen3b",
@@ -678,7 +699,7 @@
         },
         "quality_latest.json": {
           "status": "PASS",
-          "window_start": 3800,
+          "window_start": 4500,
           "n": 100,
           "tlm": {
             "empty": 0,
@@ -693,15 +714,15 @@
           "dominant_answer": {
             "tlm_count": 1,
             "source_count": 0,
-            "text": "sure, let's solve this step by step. 1. **identify the number of yellow highlighters:** - carrie has 7 yellow highlighters. 2. **determine the number of pink highlighters:** - ther",
+            "text": "sure, let's solve this step by step. 1. **determine how much money ben has:** - we know that jack has $26. - ben has $9 less than jack. - therefore, ben has \\( 26 - 9 = 17 \\) dolla",
             "share_threshold": 0.5,
             "excess_rate_threshold": 0.1
           }
         },
-        "prediction_count": 3995
+        "prediction_count": 4667
       },
       {
-        "gpu": "0, 1, 0\n1, 1, 0\n2, 1, 0\n3, 1, 0\n4, 1, 0\n5, 7759, 20\n6, 7725, 20\n7, 1, 0\n"
+        "gpu": "0, 7071, 25\n1, 7079, 25\n2, 7079, 23\n3, 7071, 24\n4, 10305, 24\n5, 7759, 17\n6, 1, 0\n7, 7409, 17\n"
       }
     ],
     "exit_status": 0
